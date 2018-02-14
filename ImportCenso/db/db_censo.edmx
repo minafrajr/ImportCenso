@@ -1,0 +1,2023 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="censo_escolarModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alunos">
+          <Key>
+            <PropertyRef Name="inep_aluno" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="inep_aluno" Type="uint" Nullable="false" />
+          <Property Name="codigo_aluno" Type="varchar" MaxLength="20" />
+          <Property Name="nome_aluno" Type="varchar" MaxLength="100" />
+          <Property Name="data_nasc_aluno" Type="date" />
+          <Property Name="sexo_aluno" Type="bool" />
+          <Property Name="cor_raca_aluno" Type="bool" />
+          <Property Name="possui_filiacao_aluno" Type="bit" />
+          <Property Name="filiacao1_aluno" Type="varchar" MaxLength="100" />
+          <Property Name="filiacao2_aluno" Type="varchar" MaxLength="100" />
+          <Property Name="nacionalidade_aluno" Type="bool" />
+          <Property Name="pais_origem_aluno" Type="int" />
+          <Property Name="uf_nasc_aluno" Type="int" />
+          <Property Name="municipio_nasc_aluno" Type="int" />
+          <Property Name="possui_deficiencia_aluno" Type="bit" />
+          <Property Name="defic_cegueira_aluno" Type="bit" />
+          <Property Name="defic_baixa_visao_aluno" Type="bit" />
+          <Property Name="defic_surdez_aluno" Type="bit" />
+          <Property Name="defic_defic_auditiva_aluno" Type="bit" />
+          <Property Name="defic_surdocegueira_aluno" Type="bit" />
+          <Property Name="defic_defic_fisica_aluno" Type="bit" />
+          <Property Name="defic_defic_intelectual_aluno" Type="bit" />
+          <Property Name="defic_defic_multipla_aluno" Type="bit" />
+          <Property Name="defic_autismo_aluno" Type="bit" />
+          <Property Name="defic_asperger_aluno" Type="bit" />
+          <Property Name="defic_rett_aluno" Type="bit" />
+          <Property Name="defic_superdotacao_aluno" Type="bit" />
+          <Property Name="auxilio_ledor_aluno" Type="bit" />
+          <Property Name="auxilio_transcricao" Type="bit" />
+          <Property Name="guia_interprete" Type="bit" />
+          <Property Name="interprete_libras" Type="bit" />
+          <Property Name="leitura_labial" Type="bit" />
+          <Property Name="prova_ampliada_fonte16" Type="bit" />
+          <Property Name="prova_ampliada_fonte20" Type="bit" />
+          <Property Name="prova_ampliada_fonte24" Type="bit" />
+          <Property Name="prova_braile" Type="bit" />
+          <Property Name="prova_especial_nehum" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.censo_escolar.alunos_pessoais' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="alunos_pessoais">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+            <PropertyRef Name="inep_aluno" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="inep_aluno" Type="uint" Nullable="false" />
+          <Property Name="codigo_aluno" Type="varchar" MaxLength="20" />
+          <Property Name="identidade_aluno" Type="varchar" MaxLength="20" />
+          <Property Name="orgao_emissor_aluno" Type="int" />
+          <Property Name="uf_identidade_aluno" Type="int" />
+          <Property Name="dataexped_identidade_aluno" Type="date" />
+          <Property Name="certidao_civil_aluno" Type="int" />
+          <Property Name="tipo_certidao_civil_aluno" Type="int" />
+          <Property Name="número_termo_aluno" Type="varchar" MaxLength="8" />
+          <Property Name="folha_aluno" Type="varchar" MaxLength="4" />
+          <Property Name="livro_aluno" Type="varchar" MaxLength="8" />
+          <Property Name="data_emissao_certidao_aluno" Type="date" />
+          <Property Name="uf_cartorio_aluno" Type="int" />
+          <Property Name="municipio_cartorio_aluno" Type="int" />
+          <Property Name="codigo_cartorio_aluno" Type="int" />
+          <Property Name="num_matricula_aluno" Type="varchar" MaxLength="32" />
+          <Property Name="cpf_aluno" Type="varchar" MaxLength="11" />
+          <Property Name="passaporte_aluno" Type="varchar" MaxLength="20" />
+          <Property Name="nis_aluno" Type="int" />
+          <Property Name="local_residencia_aluno" Type="int" />
+          <Property Name="cep_aluno" Type="varchar" MaxLength="8" />
+          <Property Name="endereco_aluno" Type="varchar" MaxLength="100" />
+          <Property Name="num_residencia_aluno" Type="varchar" MaxLength="10" />
+          <Property Name="complemento_aluno" Type="varchar" MaxLength="20" />
+          <Property Name="bairro_aluno" Type="varchar" MaxLength="50" />
+          <Property Name="uf_aluno" Type="int" />
+          <Property Name="municipio_aluno" Type="int" />
+        </EntityType>
+        <EntityType Name="alunos_turmas">
+          <Key>
+            <PropertyRef Name="inep_turma" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="inep_aluno" Type="uint" Nullable="false" />
+          <Property Name="codigo_aluno" Type="varchar" MaxLength="20" />
+          <Property Name="inep_turma" Type="uint" Nullable="false" />
+          <Property Name="codigo_turma" Type="varchar" MaxLength="20" />
+          <Property Name="matricula_aluno" Type="int" />
+          <Property Name="turma_unificada" Type="int" />
+          <Property Name="turma_multietapa_eja_misto_tecnico" Type="int" />
+          <Property Name="escolarizacao_outro_espaco" Type="int" />
+          <Property Name="transporte_publico" Type="bit" />
+          <Property Name="responsavel_transporte" Type="int" />
+          <Property Name="transporte_van_kombi" Type="bit" />
+          <Property Name="transporte_microonibus" Type="bit" />
+          <Property Name="transporte_onibus" Type="bit" />
+          <Property Name="transporte_bicicleta" Type="bit" />
+          <Property Name="transporte_tracao_animal" Type="bit" />
+          <Property Name="transporte_outro" Type="bit" />
+          <Property Name="aquaviario_ate5" Type="bit" />
+          <Property Name="aquaviario_entre5e15" Type="bit" />
+          <Property Name="aquaviario_entre15e35" Type="bit" />
+          <Property Name="aquaviario_acima30" Type="bit" />
+          <Property Name="ferroviario_metro" Type="bit" />
+          <Property Name="forma_ingresso" Type="int" />
+        </EntityType>
+        <EntityType Name="area_cursos_superior">
+          <Key>
+            <PropertyRef Name="idarea_cursos_superior" />
+          </Key>
+          <Property Name="idarea_cursos_superior" Type="uint" Nullable="false" />
+          <Property Name="nome_area" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cursos_superior">
+          <Key>
+            <PropertyRef Name="idcursos_superior" />
+          </Key>
+          <Property Name="idcursos_superior" Type="uint" Nullable="false" />
+          <Property Name="nome_curso" Type="varchar" MaxLength="90" />
+          <Property Name="grau_academico" Type="varchar" MaxLength="20" />
+          <Property Name="codigo_area" Type="int" />
+        </EntityType>
+        <EntityType Name="disciplinas">
+          <Key>
+            <PropertyRef Name="iddisciplinas" />
+          </Key>
+          <Property Name="iddisciplinas" Type="uint" Nullable="false" />
+          <Property Name="disciplinas" Type="varchar" MaxLength="190" Nullable="false" />
+        </EntityType>
+        <EntityType Name="escolas">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="cpf_gestor" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="nome_gestor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cargo_gestor" Type="bool" />
+          <Property Name="email_gestor" Type="varchar" MaxLength="50" />
+          <Property Name="situacao_escola" Type="int" />
+          <Property Name="inicio_letivo" Type="date" />
+          <Property Name="final_letivo" Type="date" />
+          <Property Name="nome_escola" Type="varchar" MaxLength="100" />
+          <Property Name="latitude" Type="varchar" MaxLength="20" />
+          <Property Name="longitude" Type="varchar" MaxLength="20" />
+          <Property Name="cep" Type="varchar" MaxLength="8" />
+          <Property Name="endereco" Type="varchar" MaxLength="100" />
+          <Property Name="endereco_numero" Type="varchar" MaxLength="45" />
+          <Property Name="endereco_complemento" Type="varchar" MaxLength="45" />
+          <Property Name="bairro" Type="varchar" MaxLength="50" />
+          <Property Name="uf_escola" Type="uint" />
+          <Property Name="municipio_escola" Type="uint" />
+          <Property Name="distrito_escola" Type="uint" />
+          <Property Name="DDD_escola" Type="tinyint" />
+          <Property Name="telefone" Type="varchar" MaxLength="9" />
+          <Property Name="telefone_publico" Type="varchar" MaxLength="9" />
+          <Property Name="telefone_outro" Type="varchar" MaxLength="9" />
+          <Property Name="fax_escola" Type="varchar" MaxLength="9" />
+          <Property Name="email_escola" Type="varchar" MaxLength="50" />
+          <Property Name="cod_regional_ensino" Type="varchar" MaxLength="5" />
+          <Property Name="depend_adm" Type="bool" />
+          <Property Name="localizacao_escola" Type="bool" />
+          <Property Name="escolacol" Type="varchar" MaxLength="45" />
+          <Property Name="categoria_privada" Type="bool" />
+          <Property Name="coneniada" Type="bool" />
+          <Property Name="mantenedora_privada1" Type="bool" />
+          <Property Name="mantenedora_privada2" Type="bool" />
+          <Property Name="mantenedora_privada3" Type="bool" />
+          <Property Name="mantenedora_privada4" Type="bool" />
+          <Property Name="mantenedora_privada5" Type="bool" />
+          <Property Name="cnpj_mantenedora" Type="varchar" MaxLength="14" />
+          <Property Name="cnpj_privada" Type="varchar" MaxLength="14" />
+          <Property Name="autorizacao_escola" Type="bool" />
+          <Property Name="unidade_vinculada" Type="bool" />
+          <Property Name="cod_escola_sede" Type="uint" />
+          <Property Name="cod_ies" Type="uint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.censo_escolar.predios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="predios">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="predio_escola" Type="bit" />
+          <Property Name="tempo_igreja" Type="bit" />
+          <Property Name="sala_empresa" Type="bit" />
+          <Property Name="casa_professor" Type="bit" />
+          <Property Name="sala_outra_escola" Type="bit" />
+          <Property Name="unid_socioeduc" Type="bit" />
+          <Property Name="unid_prisional" Type="bit" />
+          <Property Name="local_outros" Type="bit" />
+          <Property Name="ocupacao_predio" Type="bool" />
+          <Property Name="compartilhado" Type="bit" />
+          <Property Name="escola_compartilha1" Type="int" />
+          <Property Name="escola_compartilha2" Type="int" />
+          <Property Name="escola_compartilha3" Type="int" />
+          <Property Name="escola_compartilha4" Type="int" />
+          <Property Name="escola_compartilha5" Type="int" />
+          <Property Name="escola_compartilha6" Type="int" />
+          <Property Name="agua_consumida" Type="bool" />
+          <Property Name="agua_public" Type="bit" />
+          <Property Name="poco_artes" Type="bit" />
+          <Property Name="cisterna" Type="bit" />
+          <Property Name="fonte_rio" Type="bit" />
+          <Property Name="sem_agua" Type="bit" />
+          <Property Name="energia_publica" Type="bit" />
+          <Property Name="energia_gerador" Type="bit" />
+          <Property Name="energia_outros" Type="bit" />
+          <Property Name="sem_energia" Type="bit" />
+          <Property Name="esgoto_publico" Type="bit" />
+          <Property Name="esgoto_fossa" Type="bit" />
+          <Property Name="sem_esgoto" Type="bit" />
+          <Property Name="lixo_coleta" Type="bit" />
+          <Property Name="lixo_queima" Type="bit" />
+          <Property Name="lixo_outra_area" Type="bit" />
+          <Property Name="lixo_recicla" Type="bit" />
+          <Property Name="lixo_enterra" Type="bit" />
+          <Property Name="lixo_outro" Type="bit" />
+          <Property Name="sala_diretoria" Type="bit" />
+          <Property Name="sala_professores" Type="bit" />
+          <Property Name="sala_secretaria" Type="bit" />
+          <Property Name="labo_iformatica" Type="bit" />
+          <Property Name="labo_ciencias" Type="bit" />
+          <Property Name="sala_recursos" Type="bit" />
+          <Property Name="quadra_esportes_coberta" Type="bit" />
+          <Property Name="quadra_esportes_aberta" Type="bit" />
+          <Property Name="cozinha" Type="bit" />
+          <Property Name="biblioteca" Type="bit" />
+          <Property Name="sala_leitura" Type="bit" />
+          <Property Name="parque_infantil" Type="bit" />
+          <Property Name="bercario" Type="bit" />
+          <Property Name="banheiro_fora" Type="bit" />
+          <Property Name="banheiro_dentro" Type="bit" />
+          <Property Name="banheiro_inantil" Type="bit" />
+          <Property Name="banheiro_deficiente" Type="bit" />
+          <Property Name="dependecia_via_deficiente" Type="bit" />
+          <Property Name="banheiro_com_chuveiro" Type="bit" />
+          <Property Name="refeitorio" Type="bit" />
+          <Property Name="despensa" Type="bit" />
+          <Property Name="almoxarifado" Type="bit" />
+          <Property Name="auditorio" Type="bit" />
+          <Property Name="patio_coberto" Type="bit" />
+          <Property Name="patio_descoberto" Type="bit" />
+          <Property Name="alojamento_aluno" Type="bit" />
+          <Property Name="alojamento_professor" Type="bit" />
+          <Property Name="area_verde" Type="bit" />
+          <Property Name="lavanderia" Type="bit" />
+          <Property Name="nenhuma_relaciona" Type="bit" />
+          <Property Name="num_salas_aula" Type="int" />
+          <Property Name="num_salas_aula_dentro_fora" Type="int" />
+          <Property Name="qtde_tvs" Type="int" />
+          <Property Name="qtde_videocassete" Type="int" />
+          <Property Name="qtde_dvd" Type="int" />
+          <Property Name="qtde_parabolica" Type="int" />
+          <Property Name="qtde_copiador" Type="int" />
+          <Property Name="qtde_retroprojetor" Type="int" />
+          <Property Name="qtde_impressora" Type="int" />
+          <Property Name="qtde_som" Type="int" />
+          <Property Name="qtde_projetor" Type="int" />
+          <Property Name="qtde_fax" Type="int" />
+          <Property Name="qtde_maq_foto" Type="int" />
+          <Property Name="qtde_computadores_total" Type="int" />
+          <Property Name="qtde_computoadores_administ" Type="int" />
+          <Property Name="qtde_computadores_alunos" Type="int" />
+          <Property Name="acesso_internet" Type="bool" />
+          <Property Name="banda_larga" Type="bool" />
+          <Property Name="total_funcionarios" Type="int" />
+          <Property Name="alimento_alunos" Type="bool" />
+          <Property Name="aee" Type="bool" />
+          <Property Name="atividade_complementar" Type="bool" />
+          <Property Name="ensino_regular" Type="bool" />
+          <Property Name="educacao_especial" Type="bool" />
+          <Property Name="eja" Type="bool" />
+          <Property Name="educacao_profissional" Type="bool" />
+          <Property Name="ciclos" Type="bool" />
+          <Property Name="localizacao_diferenciada" Type="bool" />
+          <Property Name="material_didatico_nao_utiliza" Type="bool" />
+          <Property Name="material_didatico_quilombola" Type="bool" />
+          <Property Name="material_didatico_indigena" Type="bool" />
+          <Property Name="escola_indigena" Type="bool" />
+          <Property Name="lingua_indigena" Type="bool" />
+          <Property Name="lingua_portuguesa" Type="bool" />
+          <Property Name="cod_lingua_indigena" Type="int" />
+          <Property Name="turmas_brasil_alfabetizado" Type="bool" />
+          <Property Name="escola_aberta" Type="bool" />
+          <Property Name="proposta_pedag_alternancia" Type="bool" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.censo_escolar.profissionais_formacao' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="profissionais_formacao">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+            <PropertyRef Name="inep_profissional" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="inep_profissional" Type="uint" Nullable="false" />
+          <Property Name="codigo_profissional" Type="varchar" MaxLength="20" />
+          <Property Name="escolaridade_profissional" Type="int" />
+          <Property Name="situacao_superior1_profissional" Type="bool" />
+          <Property Name="complet_pedagogica1_profissional" Type="bit" />
+          <Property Name="cod_curso_superior1_profissional" Type="varchar" MaxLength="6" />
+          <Property Name="ano_inicio_curso_superior1_profissional" Type="int" />
+          <Property Name="ano_conclus_curso_superior1_profissional" Type="int" />
+          <Property Name="ies_superior1_profissional" Type="int" />
+          <Property Name="especializacao_profissional" Type="bit" />
+          <Property Name="mestrado_profissional" Type="bit" />
+          <Property Name="doutorado_profissional" Type="bit" />
+          <Property Name="pos_graduacao_profissional" Type="bit" />
+          <Property Name="outro_curso_creche_profissional" Type="bit" />
+          <Property Name="outro_curso_pre_escola_profissional" Type="bit" />
+          <Property Name="outro_curso_anos_iniciais_profissional" Type="bit" />
+          <Property Name="outro_curso_anos_finais_profissional" Type="bit" />
+          <Property Name="outro_curso_medio_profissional" Type="bit" />
+          <Property Name="outro_curso_eja_profissional" Type="bit" />
+          <Property Name="outro_curso_educ_especial" Type="bit" />
+          <Property Name="outro_curso_educ_indigena" Type="bit" />
+          <Property Name="outro_curso_educ_campo" Type="bit" />
+          <Property Name="outro_curso_educ_ambiental" Type="bit" />
+          <Property Name="outro_curso_direitos_humanos" Type="bit" />
+          <Property Name="outro_curso_genero_diver_sexual" Type="bit" />
+          <Property Name="outro_curso_direitos_cri_adoles" Type="bit" />
+          <Property Name="outro_curso_etnico_Afro" Type="bit" />
+          <Property Name="outro_curso_outros" Type="bit" />
+          <Property Name="outro_curso_nenhum" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.censo_escolar.profissionais_moradia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="profissionais_moradia">
+          <Key>
+            <PropertyRef Name="inep_profissional" />
+          </Key>
+          <Property Name="inep_escola" Type="int" />
+          <Property Name="inep_profissional" Type="uint" Nullable="false" />
+          <Property Name="codigo_profissional" Type="varchar" MaxLength="20" />
+          <Property Name="cpf_profissional" Type="varchar" MaxLength="11" />
+          <Property Name="local_residencia" Type="bool" />
+          <Property Name="cep_profissional" Type="varchar" MaxLength="8" />
+          <Property Name="endereco_profissional" Type="varchar" MaxLength="100" />
+          <Property Name="num_endereco_profissional" Type="varchar" MaxLength="10" />
+          <Property Name="complemento_profissional" Type="varchar" MaxLength="20" />
+          <Property Name="bairro_profissional" Type="varchar" MaxLength="45" />
+          <Property Name="uf_profissional" Type="int" />
+          <Property Name="municipio_profissional" Type="int" />
+        </EntityType>
+        <EntityType Name="profissionais_pessoais">
+          <Key>
+            <PropertyRef Name="inep_profissional" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="inep_profissional" Type="uint" Nullable="false" />
+          <Property Name="codigo_profissional" Type="varchar" MaxLength="20" />
+          <Property Name="nome_profissional" Type="varchar" MaxLength="100" />
+          <Property Name="email_profissional" Type="varchar" MaxLength="100" />
+          <Property Name="nis_profissional" Type="int" />
+          <Property Name="data_nasc_profissional" Type="date" />
+          <Property Name="sexo_profissional" Type="bool" />
+          <Property Name="cor_raca_profissional" Type="int" />
+          <Property Name="filiacao_profissional" Type="int" />
+          <Property Name="filiacao1_profissional" Type="varchar" MaxLength="100" />
+          <Property Name="filiacao2_profissional" Type="varchar" MaxLength="100" />
+          <Property Name="nacionalidade_profissional" Type="int" />
+          <Property Name="pais_origem_profissional" Type="int" />
+          <Property Name="uf_nasci__profissional" Type="int" />
+          <Property Name="municipio_nasci_profissional" Type="int" />
+          <Property Name="deficiencia_profissional" Type="bool" />
+          <Property Name="cegueira_profissional" Type="bool" />
+          <Property Name="baixa_visao_profissional" Type="bool" />
+          <Property Name="surdez_profissional" Type="bool" />
+          <Property Name="defic_auditiva_profissional" Type="bool" />
+          <Property Name="surdocegueira_profissional" Type="bool" />
+          <Property Name="defic_fisica_profissional" Type="bool" />
+          <Property Name="defic_intelec_profissional" Type="bool" />
+          <Property Name="defic_multipla_profissional" Type="bool" />
+        </EntityType>
+        <EntityType Name="turmas">
+          <Key>
+            <PropertyRef Name="inep_turma" />
+          </Key>
+          <Property Name="inep_escola" Type="uint" Nullable="false" />
+          <Property Name="inep_profissional" Type="uint" Nullable="false" />
+          <Property Name="codigo_profissional" Type="int" />
+          <Property Name="inep_turma" Type="uint" Nullable="false" />
+          <Property Name="codigo_turma" Type="int" />
+          <Property Name="funcao_turma" Type="int" />
+          <Property Name="situacao_funcional_turma" Type="int" />
+          <Property Name="disciplina_turma" Type="int" />
+          <Property Name="disciplina_turma2" Type="int" />
+          <Property Name="disciplina_turma3" Type="int" />
+          <Property Name="disciplina_turma4" Type="int" />
+          <Property Name="disciplina_turma5" Type="int" />
+          <Property Name="disciplina_turma6" Type="int" />
+          <Property Name="disciplina_turma7" Type="int" />
+          <Property Name="disciplina_turma8" Type="int" />
+          <Property Name="disciplina_turma9" Type="int" />
+          <Property Name="disciplina_turma10" Type="int" />
+          <Property Name="disciplina_turma11" Type="int" />
+          <Property Name="disciplina_turma12" Type="int" />
+          <Property Name="disciplina_turma13" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.censo_escolar.turmas_pedagogico' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="turmas_pedagogico">
+          <Key>
+            <PropertyRef Name="inep_turam" />
+          </Key>
+          <Property Name="inep_turam" Type="uint" Nullable="false" />
+          <Property Name="inep_escola" Type="uint" />
+          <Property Name="codigo_turma" Type="varchar" MaxLength="20" />
+          <Property Name="nome_turma" Type="varchar" MaxLength="80" />
+          <Property Name="mediacao_didatico_pedagogica" Type="bool" />
+        </EntityType>
+        <Association Name="fk_alunos_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="alunos" Type="Self.alunos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="alunos">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_pessoais_alunos1">
+          <End Role="alunos" Type="Self.alunos" Multiplicity="1" />
+          <End Role="alunos_pessoais" Type="Self.alunos_pessoais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alunos">
+              <PropertyRef Name="inep_aluno" />
+            </Principal>
+            <Dependent Role="alunos_pessoais">
+              <PropertyRef Name="inep_aluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_pessoais_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="alunos_pessoais" Type="Self.alunos_pessoais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="alunos_pessoais">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_turmas_alunos1">
+          <End Role="alunos" Type="Self.alunos" Multiplicity="1" />
+          <End Role="alunos_turmas" Type="Self.alunos_turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alunos">
+              <PropertyRef Name="inep_aluno" />
+            </Principal>
+            <Dependent Role="alunos_turmas">
+              <PropertyRef Name="inep_aluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_turmas_escolas2">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="alunos_turmas" Type="Self.alunos_turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="alunos_turmas">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_turmas_turmas1">
+          <End Role="turmas" Type="Self.turmas" Multiplicity="1" />
+          <End Role="alunos_turmas" Type="Self.alunos_turmas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="turmas">
+              <PropertyRef Name="inep_turma" />
+            </Principal>
+            <Dependent Role="alunos_turmas">
+              <PropertyRef Name="inep_turma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_predios_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="predios" Type="Self.predios" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="predios">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_profissionais_formacao_profissionais_pessoais1">
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="1" />
+          <End Role="profissionais_formacao" Type="Self.profissionais_formacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profissionais_pessoais">
+              <PropertyRef Name="inep_profissional" />
+            </Principal>
+            <Dependent Role="profissionais_formacao">
+              <PropertyRef Name="inep_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_profissionais_moradia_profissionais_pessoais1">
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="1" />
+          <End Role="profissionais_moradia" Type="Self.profissionais_moradia" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="profissionais_pessoais">
+              <PropertyRef Name="inep_profissional" />
+            </Principal>
+            <Dependent Role="profissionais_moradia">
+              <PropertyRef Name="inep_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_profissionais_pessoais_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="profissionais_pessoais">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="turmas" Type="Self.turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="turmas">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_pedagogico_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="0..1" />
+          <End Role="turmas_pedagogico" Type="Self.turmas_pedagogico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="turmas_pedagogico">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_pedagogico_turmas1">
+          <End Role="turmas" Type="Self.turmas" Multiplicity="1" />
+          <End Role="turmas_pedagogico" Type="Self.turmas_pedagogico" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="turmas">
+              <PropertyRef Name="inep_turma" />
+            </Principal>
+            <Dependent Role="turmas_pedagogico">
+              <PropertyRef Name="inep_turam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_profissionais_pessoais1">
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="1" />
+          <End Role="turmas" Type="Self.turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profissionais_pessoais">
+              <PropertyRef Name="inep_profissional" />
+            </Principal>
+            <Dependent Role="turmas">
+              <PropertyRef Name="inep_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="censo_escolarModelStoreContainer">
+          <EntitySet Name="alunos" EntityType="Self.alunos" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="alunos_turmas" EntityType="Self.alunos_turmas" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="area_cursos_superior" EntityType="Self.area_cursos_superior" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="cursos_superior" EntityType="Self.cursos_superior" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="disciplinas" EntityType="Self.disciplinas" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="escolas" EntityType="Self.escolas" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="profissionais_pessoais" EntityType="Self.profissionais_pessoais" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="turmas" EntityType="Self.turmas" Schema="censo_escolar" store:Type="Tables" />
+          <EntitySet Name="alunos_pessoais" EntityType="Self.alunos_pessoais" store:Type="Tables" store:Schema="censo_escolar">
+            <DefiningQuery>SELECT
+`alunos_pessoais`.`inep_escola`, 
+`alunos_pessoais`.`inep_aluno`, 
+`alunos_pessoais`.`codigo_aluno`, 
+`alunos_pessoais`.`identidade_aluno`, 
+`alunos_pessoais`.`orgao_emissor_aluno`, 
+`alunos_pessoais`.`uf_identidade_aluno`, 
+`alunos_pessoais`.`dataexped_identidade_aluno`, 
+`alunos_pessoais`.`certidao_civil_aluno`, 
+`alunos_pessoais`.`tipo_certidao_civil_aluno`, 
+`alunos_pessoais`.`número_termo_aluno`, 
+`alunos_pessoais`.`folha_aluno`, 
+`alunos_pessoais`.`livro_aluno`, 
+`alunos_pessoais`.`data_emissao_certidao_aluno`, 
+`alunos_pessoais`.`uf_cartorio_aluno`, 
+`alunos_pessoais`.`municipio_cartorio_aluno`, 
+`alunos_pessoais`.`codigo_cartorio_aluno`, 
+`alunos_pessoais`.`num_matricula_aluno`, 
+`alunos_pessoais`.`cpf_aluno`, 
+`alunos_pessoais`.`passaporte_aluno`, 
+`alunos_pessoais`.`nis_aluno`, 
+`alunos_pessoais`.`local_residencia_aluno`, 
+`alunos_pessoais`.`cep_aluno`, 
+`alunos_pessoais`.`endereco_aluno`, 
+`alunos_pessoais`.`num_residencia_aluno`, 
+`alunos_pessoais`.`complemento_aluno`, 
+`alunos_pessoais`.`bairro_aluno`, 
+`alunos_pessoais`.`uf_aluno`, 
+`alunos_pessoais`.`municipio_aluno`
+FROM `alunos_pessoais` AS `alunos_pessoais`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="predios" EntityType="Self.predios" store:Type="Tables" store:Schema="censo_escolar">
+            <DefiningQuery>SELECT
+`predios`.`inep_escola`, 
+`predios`.`predio_escola`, 
+`predios`.`tempo_igreja`, 
+`predios`.`sala_empresa`, 
+`predios`.`casa_professor`, 
+`predios`.`sala_outra_escola`, 
+`predios`.`unid_socioeduc`, 
+`predios`.`unid_prisional`, 
+`predios`.`local_outros`, 
+`predios`.`ocupacao_predio`, 
+`predios`.`compartilhado`, 
+`predios`.`escola_compartilha1`, 
+`predios`.`escola_compartilha2`, 
+`predios`.`escola_compartilha3`, 
+`predios`.`escola_compartilha4`, 
+`predios`.`escola_compartilha5`, 
+`predios`.`escola_compartilha6`, 
+`predios`.`agua_consumida`, 
+`predios`.`agua_public`, 
+`predios`.`poco_artes`, 
+`predios`.`cisterna`, 
+`predios`.`fonte_rio`, 
+`predios`.`sem_agua`, 
+`predios`.`energia_publica`, 
+`predios`.`energia_gerador`, 
+`predios`.`energia_outros`, 
+`predios`.`sem_energia`, 
+`predios`.`esgoto_publico`, 
+`predios`.`esgoto_fossa`, 
+`predios`.`sem_esgoto`, 
+`predios`.`lixo_coleta`, 
+`predios`.`lixo_queima`, 
+`predios`.`lixo_outra_area`, 
+`predios`.`lixo_recicla`, 
+`predios`.`lixo_enterra`, 
+`predios`.`lixo_outro`, 
+`predios`.`sala_diretoria`, 
+`predios`.`sala_professores`, 
+`predios`.`sala_secretaria`, 
+`predios`.`labo_iformatica`, 
+`predios`.`labo_ciencias`, 
+`predios`.`sala_recursos`, 
+`predios`.`quadra_esportes_coberta`, 
+`predios`.`quadra_esportes_aberta`, 
+`predios`.`cozinha`, 
+`predios`.`biblioteca`, 
+`predios`.`sala_leitura`, 
+`predios`.`parque_infantil`, 
+`predios`.`bercario`, 
+`predios`.`banheiro_fora`, 
+`predios`.`banheiro_dentro`, 
+`predios`.`banheiro_inantil`, 
+`predios`.`banheiro_deficiente`, 
+`predios`.`dependecia_via_deficiente`, 
+`predios`.`banheiro_com_chuveiro`, 
+`predios`.`refeitorio`, 
+`predios`.`despensa`, 
+`predios`.`almoxarifado`, 
+`predios`.`auditorio`, 
+`predios`.`patio_coberto`, 
+`predios`.`patio_descoberto`, 
+`predios`.`alojamento_aluno`, 
+`predios`.`alojamento_professor`, 
+`predios`.`area_verde`, 
+`predios`.`lavanderia`, 
+`predios`.`nenhuma_relaciona`, 
+`predios`.`num_salas_aula`, 
+`predios`.`num_salas_aula_dentro_fora`, 
+`predios`.`qtde_tvs`, 
+`predios`.`qtde_videocassete`, 
+`predios`.`qtde_dvd`, 
+`predios`.`qtde_parabolica`, 
+`predios`.`qtde_copiador`, 
+`predios`.`qtde_retroprojetor`, 
+`predios`.`qtde_impressora`, 
+`predios`.`qtde_som`, 
+`predios`.`qtde_projetor`, 
+`predios`.`qtde_fax`, 
+`predios`.`qtde_maq_foto`, 
+`predios`.`qtde_computadores_total`, 
+`predios`.`qtde_computoadores_administ`, 
+`predios`.`qtde_computadores_alunos`, 
+`predios`.`acesso_internet`, 
+`predios`.`banda_larga`, 
+`predios`.`total_funcionarios`, 
+`predios`.`alimento_alunos`, 
+`predios`.`aee`, 
+`predios`.`atividade_complementar`, 
+`predios`.`ensino_regular`, 
+`predios`.`educacao_especial`, 
+`predios`.`eja`, 
+`predios`.`educacao_profissional`, 
+`predios`.`ciclos`, 
+`predios`.`localizacao_diferenciada`, 
+`predios`.`material_didatico_nao_utiliza`, 
+`predios`.`material_didatico_quilombola`, 
+`predios`.`material_didatico_indigena`, 
+`predios`.`escola_indigena`, 
+`predios`.`lingua_indigena`, 
+`predios`.`lingua_portuguesa`, 
+`predios`.`cod_lingua_indigena`, 
+`predios`.`turmas_brasil_alfabetizado`, 
+`predios`.`escola_aberta`, 
+`predios`.`proposta_pedag_alternancia`
+FROM `predios` AS `predios`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="profissionais_formacao" EntityType="Self.profissionais_formacao" store:Type="Tables" store:Schema="censo_escolar">
+            <DefiningQuery>SELECT
+`profissionais_formacao`.`inep_escola`, 
+`profissionais_formacao`.`inep_profissional`, 
+`profissionais_formacao`.`codigo_profissional`, 
+`profissionais_formacao`.`escolaridade_profissional`, 
+`profissionais_formacao`.`situacao_superior1_profissional`, 
+`profissionais_formacao`.`complet_pedagogica1_profissional`, 
+`profissionais_formacao`.`cod_curso_superior1_profissional`, 
+`profissionais_formacao`.`ano_inicio_curso_superior1_profissional`, 
+`profissionais_formacao`.`ano_conclus_curso_superior1_profissional`, 
+`profissionais_formacao`.`ies_superior1_profissional`, 
+`profissionais_formacao`.`especializacao_profissional`, 
+`profissionais_formacao`.`mestrado_profissional`, 
+`profissionais_formacao`.`doutorado_profissional`, 
+`profissionais_formacao`.`pos_graduacao_profissional`, 
+`profissionais_formacao`.`outro_curso_creche_profissional`, 
+`profissionais_formacao`.`outro_curso_pre_escola_profissional`, 
+`profissionais_formacao`.`outro_curso_anos_iniciais_profissional`, 
+`profissionais_formacao`.`outro_curso_anos_finais_profissional`, 
+`profissionais_formacao`.`outro_curso_medio_profissional`, 
+`profissionais_formacao`.`outro_curso_eja_profissional`, 
+`profissionais_formacao`.`outro_curso_educ_especial`, 
+`profissionais_formacao`.`outro_curso_educ_indigena`, 
+`profissionais_formacao`.`outro_curso_educ_campo`, 
+`profissionais_formacao`.`outro_curso_educ_ambiental`, 
+`profissionais_formacao`.`outro_curso_direitos_humanos`, 
+`profissionais_formacao`.`outro_curso_genero_diver_sexual`, 
+`profissionais_formacao`.`outro_curso_direitos_cri_adoles`, 
+`profissionais_formacao`.`outro_curso_etnico_Afro`, 
+`profissionais_formacao`.`outro_curso_outros`, 
+`profissionais_formacao`.`outro_curso_nenhum`
+FROM `profissionais_formacao` AS `profissionais_formacao`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="profissionais_moradia" EntityType="Self.profissionais_moradia" store:Type="Tables" store:Schema="censo_escolar">
+            <DefiningQuery>SELECT
+`profissionais_moradia`.`inep_escola`, 
+`profissionais_moradia`.`inep_profissional`, 
+`profissionais_moradia`.`codigo_profissional`, 
+`profissionais_moradia`.`cpf_profissional`, 
+`profissionais_moradia`.`local_residencia`, 
+`profissionais_moradia`.`cep_profissional`, 
+`profissionais_moradia`.`endereco_profissional`, 
+`profissionais_moradia`.`num_endereco_profissional`, 
+`profissionais_moradia`.`complemento_profissional`, 
+`profissionais_moradia`.`bairro_profissional`, 
+`profissionais_moradia`.`uf_profissional`, 
+`profissionais_moradia`.`municipio_profissional`
+FROM `profissionais_moradia` AS `profissionais_moradia`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="turmas_pedagogico" EntityType="Self.turmas_pedagogico" store:Type="Tables" store:Schema="censo_escolar">
+            <DefiningQuery>SELECT
+`turmas_pedagogico`.`inep_turam`, 
+`turmas_pedagogico`.`inep_escola`, 
+`turmas_pedagogico`.`codigo_turma`, 
+`turmas_pedagogico`.`nome_turma`, 
+`turmas_pedagogico`.`mediacao_didatico_pedagogica`
+FROM `turmas_pedagogico` AS `turmas_pedagogico`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_alunos_escolas1" Association="Self.fk_alunos_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="alunos" EntitySet="alunos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_pessoais_alunos1" Association="Self.fk_alunos_pessoais_alunos1">
+            <End Role="alunos" EntitySet="alunos" />
+            <End Role="alunos_pessoais" EntitySet="alunos_pessoais" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_pessoais_escolas1" Association="Self.fk_alunos_pessoais_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="alunos_pessoais" EntitySet="alunos_pessoais" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_turmas_alunos1" Association="Self.fk_alunos_turmas_alunos1">
+            <End Role="alunos" EntitySet="alunos" />
+            <End Role="alunos_turmas" EntitySet="alunos_turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_turmas_escolas2" Association="Self.fk_alunos_turmas_escolas2">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="alunos_turmas" EntitySet="alunos_turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_turmas_turmas1" Association="Self.fk_alunos_turmas_turmas1">
+            <End Role="turmas" EntitySet="turmas" />
+            <End Role="alunos_turmas" EntitySet="alunos_turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_predios_escolas1" Association="Self.fk_predios_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="predios" EntitySet="predios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_profissionais_formacao_profissionais_pessoais1" Association="Self.fk_profissionais_formacao_profissionais_pessoais1">
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+            <End Role="profissionais_formacao" EntitySet="profissionais_formacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_profissionais_moradia_profissionais_pessoais1" Association="Self.fk_profissionais_moradia_profissionais_pessoais1">
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+            <End Role="profissionais_moradia" EntitySet="profissionais_moradia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_profissionais_pessoais_escolas1" Association="Self.fk_profissionais_pessoais_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_escolas1" Association="Self.fk_turmas_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="turmas" EntitySet="turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_pedagogico_escolas1" Association="Self.fk_turmas_pedagogico_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="turmas_pedagogico" EntitySet="turmas_pedagogico" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_pedagogico_turmas1" Association="Self.fk_turmas_pedagogico_turmas1">
+            <End Role="turmas" EntitySet="turmas" />
+            <End Role="turmas_pedagogico" EntitySet="turmas_pedagogico" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_profissionais_pessoais1" Association="Self.fk_turmas_profissionais_pessoais1">
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+            <End Role="turmas" EntitySet="turmas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="censo_escolarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="alunos">
+          <Key>
+            <PropertyRef Name="inep_aluno" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="inep_aluno" Type="Int64" Nullable="false" />
+          <Property Name="codigo_aluno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nome_aluno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="data_nasc_aluno" Type="DateTime" />
+          <Property Name="sexo_aluno" Type="Boolean" />
+          <Property Name="cor_raca_aluno" Type="Int32" />
+          <Property Name="possui_filiacao_aluno" Type="Boolean" />
+          <Property Name="filiacao1_aluno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="filiacao2_aluno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidade_aluno" Type="Int64" />
+          <Property Name="pais_origem_aluno" Type="Int32" />
+          <Property Name="uf_nasc_aluno" Type="Int32" />
+          <Property Name="municipio_nasc_aluno" Type="Int32" />
+          <Property Name="possui_deficiencia_aluno" Type="Boolean" />
+          <Property Name="defic_cegueira_aluno" Type="Boolean" />
+          <Property Name="defic_baixa_visao_aluno" Type="Boolean" />
+          <Property Name="defic_surdez_aluno" Type="Boolean" />
+          <Property Name="defic_defic_auditiva_aluno" Type="Boolean" />
+          <Property Name="defic_surdocegueira_aluno" Type="Boolean" />
+          <Property Name="defic_defic_fisica_aluno" Type="Boolean" />
+          <Property Name="defic_defic_intelectual_aluno" Type="Boolean" />
+          <Property Name="defic_defic_multipla_aluno" Type="Boolean" />
+          <Property Name="defic_autismo_aluno" Type="Boolean" />
+          <Property Name="defic_asperger_aluno" Type="Boolean" />
+          <Property Name="defic_rett_aluno" Type="Boolean" />
+          <Property Name="defic_superdotacao_aluno" Type="Boolean" />
+          <Property Name="auxilio_ledor_aluno" Type="Boolean" />
+          <Property Name="auxilio_transcricao" Type="Boolean" />
+          <Property Name="guia_interprete" Type="Boolean" />
+          <Property Name="interprete_libras" Type="Boolean" />
+          <Property Name="leitura_labial" Type="Boolean" />
+          <Property Name="prova_ampliada_fonte16" Type="Boolean" />
+          <Property Name="prova_ampliada_fonte20" Type="Boolean" />
+          <Property Name="prova_ampliada_fonte24" Type="Boolean" />
+          <Property Name="prova_braile" Type="Boolean" />
+          <Property Name="prova_especial_nehum" Type="Boolean" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_alunos_escolas1" FromRole="alunos" ToRole="escolas" />
+          <NavigationProperty Name="alunos_pessoais" Relationship="Self.fk_alunos_pessoais_alunos1" FromRole="alunos" ToRole="alunos_pessoais" />
+          <NavigationProperty Name="alunos_turmas" Relationship="Self.fk_alunos_turmas_alunos1" FromRole="alunos" ToRole="alunos_turmas" />
+        </EntityType>
+        <EntityType Name="alunos_turmas">
+          <Key>
+            <PropertyRef Name="inep_turma" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="inep_aluno" Type="Int64" Nullable="false" />
+          <Property Name="codigo_aluno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="inep_turma" Type="Int64" Nullable="false" />
+          <Property Name="codigo_turma" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="matricula_aluno" Type="Int32" />
+          <Property Name="turma_unificada" Type="Int32" />
+          <Property Name="turma_multietapa_eja_misto_tecnico" Type="Int32" />
+          <Property Name="escolarizacao_outro_espaco" Type="Int32" />
+          <Property Name="transporte_publico" Type="Boolean" />
+          <Property Name="responsavel_transporte" Type="Int32" />
+          <Property Name="transporte_van_kombi" Type="Boolean" />
+          <Property Name="transporte_microonibus" Type="Boolean" />
+          <Property Name="transporte_onibus" Type="Boolean" />
+          <Property Name="transporte_bicicleta" Type="Boolean" />
+          <Property Name="transporte_tracao_animal" Type="Boolean" />
+          <Property Name="transporte_outro" Type="Boolean" />
+          <Property Name="aquaviario_ate5" Type="Boolean" />
+          <Property Name="aquaviario_entre5e15" Type="Boolean" />
+          <Property Name="aquaviario_entre15e35" Type="Boolean" />
+          <Property Name="aquaviario_acima30" Type="Boolean" />
+          <Property Name="ferroviario_metro" Type="Boolean" />
+          <Property Name="forma_ingresso" Type="Int32" />
+          <NavigationProperty Name="alunos" Relationship="Self.fk_alunos_turmas_alunos1" FromRole="alunos_turmas" ToRole="alunos" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_alunos_turmas_escolas2" FromRole="alunos_turmas" ToRole="escolas" />
+          <NavigationProperty Name="turmas" Relationship="Self.fk_alunos_turmas_turmas1" FromRole="alunos_turmas" ToRole="turmas" />
+        </EntityType>
+        <EntityType Name="area_cursos_superior">
+          <Key>
+            <PropertyRef Name="idarea_cursos_superior" />
+          </Key>
+          <Property Name="idarea_cursos_superior" Type="Int64" Nullable="false" />
+          <Property Name="nome_area" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cursos_superior">
+          <Key>
+            <PropertyRef Name="idcursos_superior" />
+          </Key>
+          <Property Name="idcursos_superior" Type="Int64" Nullable="false" />
+          <Property Name="nome_curso" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="grau_academico" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_area" Type="Int32" />
+        </EntityType>
+        <EntityType Name="disciplinas">
+          <Key>
+            <PropertyRef Name="iddisciplinas" />
+          </Key>
+          <Property Name="iddisciplinas" Type="Int64" Nullable="false" />
+          <Property Name="disciplinas1" Type="String" MaxLength="190" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="escolas">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="cpf_gestor" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome_gestor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo_gestor" Type="Boolean" />
+          <Property Name="email_gestor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="situacao_escola" Type="Int32" />
+          <Property Name="inicio_letivo" Type="DateTime" />
+          <Property Name="final_letivo" Type="DateTime" />
+          <Property Name="nome_escola" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="endereco_numero" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="endereco_complemento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uf_escola" Type="Int64" />
+          <Property Name="municipio_escola" Type="Int64" />
+          <Property Name="distrito_escola" Type="Int64" />
+          <Property Name="DDD_escola" Type="SByte" />
+          <Property Name="telefone" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="telefone_publico" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="telefone_outro" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="fax_escola" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="email_escola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cod_regional_ensino" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="depend_adm" Type="Boolean" />
+          <Property Name="localizacao_escola" Type="Boolean" />
+          <Property Name="escolacol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="categoria_privada" Type="Boolean" />
+          <Property Name="coneniada" Type="Boolean" />
+          <Property Name="mantenedora_privada1" Type="Boolean" />
+          <Property Name="mantenedora_privada2" Type="Boolean" />
+          <Property Name="mantenedora_privada3" Type="Boolean" />
+          <Property Name="mantenedora_privada4" Type="Boolean" />
+          <Property Name="mantenedora_privada5" Type="Boolean" />
+          <Property Name="cnpj_mantenedora" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="cnpj_privada" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="autorizacao_escola" Type="Boolean" />
+          <Property Name="unidade_vinculada" Type="Boolean" />
+          <Property Name="cod_escola_sede" Type="Int64" />
+          <Property Name="cod_ies" Type="Int64" />
+          <NavigationProperty Name="alunos" Relationship="Self.fk_alunos_escolas1" FromRole="escolas" ToRole="alunos" />
+          <NavigationProperty Name="alunos_turmas" Relationship="Self.fk_alunos_turmas_escolas2" FromRole="escolas" ToRole="alunos_turmas" />
+          <NavigationProperty Name="alunos_pessoais" Relationship="Self.fk_alunos_pessoais_escolas1" FromRole="escolas" ToRole="alunos_pessoais" />
+          <NavigationProperty Name="predios" Relationship="Self.fk_predios_escolas1" FromRole="escolas" ToRole="predios" />
+          <NavigationProperty Name="profissionais_pessoais" Relationship="Self.fk_profissionais_pessoais_escolas1" FromRole="escolas" ToRole="profissionais_pessoais" />
+          <NavigationProperty Name="turmas" Relationship="Self.fk_turmas_escolas1" FromRole="escolas" ToRole="turmas" />
+          <NavigationProperty Name="turmas_pedagogico" Relationship="Self.fk_turmas_pedagogico_escolas1" FromRole="escolas" ToRole="turmas_pedagogico" />
+        </EntityType>
+        <EntityType Name="profissionais_pessoais">
+          <Key>
+            <PropertyRef Name="inep_profissional" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="inep_profissional" Type="Int64" Nullable="false" />
+          <Property Name="codigo_profissional" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nome_profissional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email_profissional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nis_profissional" Type="Int32" />
+          <Property Name="data_nasc_profissional" Type="DateTime" />
+          <Property Name="sexo_profissional" Type="Boolean" />
+          <Property Name="cor_raca_profissional" Type="Int32" />
+          <Property Name="filiacao_profissional" Type="Int32" />
+          <Property Name="filiacao1_profissional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="filiacao2_profissional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidade_profissional" Type="Int32" />
+          <Property Name="pais_origem_profissional" Type="Int32" />
+          <Property Name="uf_nasci__profissional" Type="Int32" />
+          <Property Name="municipio_nasci_profissional" Type="Int32" />
+          <Property Name="deficiencia_profissional" Type="Boolean" />
+          <Property Name="cegueira_profissional" Type="Boolean" />
+          <Property Name="baixa_visao_profissional" Type="Boolean" />
+          <Property Name="surdez_profissional" Type="Boolean" />
+          <Property Name="defic_auditiva_profissional" Type="Boolean" />
+          <Property Name="surdocegueira_profissional" Type="Boolean" />
+          <Property Name="defic_fisica_profissional" Type="Boolean" />
+          <Property Name="defic_intelec_profissional" Type="Boolean" />
+          <Property Name="defic_multipla_profissional" Type="Boolean" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_profissionais_pessoais_escolas1" FromRole="profissionais_pessoais" ToRole="escolas" />
+          <NavigationProperty Name="profissionais_formacao" Relationship="Self.fk_profissionais_formacao_profissionais_pessoais1" FromRole="profissionais_pessoais" ToRole="profissionais_formacao" />
+          <NavigationProperty Name="profissionais_moradia" Relationship="Self.fk_profissionais_moradia_profissionais_pessoais1" FromRole="profissionais_pessoais" ToRole="profissionais_moradia" />
+          <NavigationProperty Name="turmas" Relationship="Self.fk_turmas_profissionais_pessoais1" FromRole="profissionais_pessoais" ToRole="turmas" />
+        </EntityType>
+        <EntityType Name="turmas">
+          <Key>
+            <PropertyRef Name="inep_turma" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="inep_profissional" Type="Int64" Nullable="false" />
+          <Property Name="codigo_profissional" Type="Int32" />
+          <Property Name="inep_turma" Type="Int64" Nullable="false" />
+          <Property Name="codigo_turma" Type="Int32" />
+          <Property Name="funcao_turma" Type="Int32" />
+          <Property Name="situacao_funcional_turma" Type="Int32" />
+          <Property Name="disciplina_turma" Type="Int32" />
+          <Property Name="disciplina_turma2" Type="Int32" />
+          <Property Name="disciplina_turma3" Type="Int32" />
+          <Property Name="disciplina_turma4" Type="Int32" />
+          <Property Name="disciplina_turma5" Type="Int32" />
+          <Property Name="disciplina_turma6" Type="Int32" />
+          <Property Name="disciplina_turma7" Type="Int32" />
+          <Property Name="disciplina_turma8" Type="Int32" />
+          <Property Name="disciplina_turma9" Type="Int32" />
+          <Property Name="disciplina_turma10" Type="Int32" />
+          <Property Name="disciplina_turma11" Type="Int32" />
+          <Property Name="disciplina_turma12" Type="Int32" />
+          <Property Name="disciplina_turma13" Type="Int32" />
+          <NavigationProperty Name="alunos_turmas" Relationship="Self.fk_alunos_turmas_turmas1" FromRole="turmas" ToRole="alunos_turmas" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_turmas_escolas1" FromRole="turmas" ToRole="escolas" />
+          <NavigationProperty Name="profissionais_pessoais" Relationship="Self.fk_turmas_profissionais_pessoais1" FromRole="turmas" ToRole="profissionais_pessoais" />
+          <NavigationProperty Name="turmas_pedagogico" Relationship="Self.fk_turmas_pedagogico_turmas1" FromRole="turmas" ToRole="turmas_pedagogico" />
+        </EntityType>
+        <EntityType Name="alunos_pessoais">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+            <PropertyRef Name="inep_aluno" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="inep_aluno" Type="Int64" Nullable="false" />
+          <Property Name="codigo_aluno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="identidade_aluno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="orgao_emissor_aluno" Type="Int32" />
+          <Property Name="uf_identidade_aluno" Type="Int32" />
+          <Property Name="dataexped_identidade_aluno" Type="DateTime" />
+          <Property Name="certidao_civil_aluno" Type="Int32" />
+          <Property Name="tipo_certidao_civil_aluno" Type="Int32" />
+          <Property Name="num_termo_aluno" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="folha_aluno" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="livro_aluno" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="data_emissao_certidao_aluno" Type="DateTime" />
+          <Property Name="uf_cartorio_aluno" Type="Int32" />
+          <Property Name="municipio_cartorio_aluno" Type="Int32" />
+          <Property Name="codigo_cartorio_aluno" Type="Int32" />
+          <Property Name="num_matricula_aluno" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="cpf_aluno" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="passaporte_aluno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nis_aluno" Type="Int32" />
+          <Property Name="local_residencia_aluno" Type="Int32" />
+          <Property Name="cep_aluno" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="endereco_aluno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="num_residencia_aluno" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="complemento_aluno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bairro_aluno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uf_aluno" Type="Int32" />
+          <Property Name="municipio_aluno" Type="Int32" />
+          <NavigationProperty Name="alunos" Relationship="Self.fk_alunos_pessoais_alunos1" FromRole="alunos_pessoais" ToRole="alunos" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_alunos_pessoais_escolas1" FromRole="alunos_pessoais" ToRole="escolas" />
+        </EntityType>
+        <EntityType Name="predios">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="predio_escola" Type="Boolean" />
+          <Property Name="tempo_igreja" Type="Boolean" />
+          <Property Name="sala_empresa" Type="Boolean" />
+          <Property Name="casa_professor" Type="Boolean" />
+          <Property Name="sala_outra_escola" Type="Boolean" />
+          <Property Name="unid_socioeduc" Type="Boolean" />
+          <Property Name="unid_prisional" Type="Boolean" />
+          <Property Name="local_outros" Type="Boolean" />
+          <Property Name="ocupacao_predio" Type="Boolean" />
+          <Property Name="compartilhado" Type="Boolean" />
+          <Property Name="escola_compartilha1" Type="Int32" />
+          <Property Name="escola_compartilha2" Type="Int32" />
+          <Property Name="escola_compartilha3" Type="Int32" />
+          <Property Name="escola_compartilha4" Type="Int32" />
+          <Property Name="escola_compartilha5" Type="Int32" />
+          <Property Name="escola_compartilha6" Type="Int32" />
+          <Property Name="agua_consumida" Type="Boolean" />
+          <Property Name="agua_public" Type="Boolean" />
+          <Property Name="poco_artes" Type="Boolean" />
+          <Property Name="cisterna" Type="Boolean" />
+          <Property Name="fonte_rio" Type="Boolean" />
+          <Property Name="sem_agua" Type="Boolean" />
+          <Property Name="energia_publica" Type="Boolean" />
+          <Property Name="energia_gerador" Type="Boolean" />
+          <Property Name="energia_outros" Type="Boolean" />
+          <Property Name="sem_energia" Type="Boolean" />
+          <Property Name="esgoto_publico" Type="Boolean" />
+          <Property Name="esgoto_fossa" Type="Boolean" />
+          <Property Name="sem_esgoto" Type="Boolean" />
+          <Property Name="lixo_coleta" Type="Boolean" />
+          <Property Name="lixo_queima" Type="Boolean" />
+          <Property Name="lixo_outra_area" Type="Boolean" />
+          <Property Name="lixo_recicla" Type="Boolean" />
+          <Property Name="lixo_enterra" Type="Boolean" />
+          <Property Name="lixo_outro" Type="Boolean" />
+          <Property Name="sala_diretoria" Type="Boolean" />
+          <Property Name="sala_professores" Type="Boolean" />
+          <Property Name="sala_secretaria" Type="Boolean" />
+          <Property Name="labo_iformatica" Type="Boolean" />
+          <Property Name="labo_ciencias" Type="Boolean" />
+          <Property Name="sala_recursos" Type="Boolean" />
+          <Property Name="quadra_esportes_coberta" Type="Boolean" />
+          <Property Name="quadra_esportes_aberta" Type="Boolean" />
+          <Property Name="cozinha" Type="Boolean" />
+          <Property Name="biblioteca" Type="Boolean" />
+          <Property Name="sala_leitura" Type="Boolean" />
+          <Property Name="parque_infantil" Type="Boolean" />
+          <Property Name="bercario" Type="Boolean" />
+          <Property Name="banheiro_fora" Type="Boolean" />
+          <Property Name="banheiro_dentro" Type="Boolean" />
+          <Property Name="banheiro_inantil" Type="Boolean" />
+          <Property Name="banheiro_deficiente" Type="Boolean" />
+          <Property Name="dependecia_via_deficiente" Type="Boolean" />
+          <Property Name="banheiro_com_chuveiro" Type="Boolean" />
+          <Property Name="refeitorio" Type="Boolean" />
+          <Property Name="despensa" Type="Boolean" />
+          <Property Name="almoxarifado" Type="Boolean" />
+          <Property Name="auditorio" Type="Boolean" />
+          <Property Name="patio_coberto" Type="Boolean" />
+          <Property Name="patio_descoberto" Type="Boolean" />
+          <Property Name="alojamento_aluno" Type="Boolean" />
+          <Property Name="alojamento_professor" Type="Boolean" />
+          <Property Name="area_verde" Type="Boolean" />
+          <Property Name="lavanderia" Type="Boolean" />
+          <Property Name="nenhuma_relaciona" Type="Boolean" />
+          <Property Name="num_salas_aula" Type="Int32" />
+          <Property Name="num_salas_aula_dentro_fora" Type="Int32" />
+          <Property Name="qtde_tvs" Type="Int32" />
+          <Property Name="qtde_videocassete" Type="Int32" />
+          <Property Name="qtde_dvd" Type="Int32" />
+          <Property Name="qtde_parabolica" Type="Int32" />
+          <Property Name="qtde_copiador" Type="Int32" />
+          <Property Name="qtde_retroprojetor" Type="Int32" />
+          <Property Name="qtde_impressora" Type="Int32" />
+          <Property Name="qtde_som" Type="Int32" />
+          <Property Name="qtde_projetor" Type="Int32" />
+          <Property Name="qtde_fax" Type="Int32" />
+          <Property Name="qtde_maq_foto" Type="Int32" />
+          <Property Name="qtde_computadores_total" Type="Int32" />
+          <Property Name="qtde_computoadores_administ" Type="Int32" />
+          <Property Name="qtde_computadores_alunos" Type="Int32" />
+          <Property Name="acesso_internet" Type="Boolean" />
+          <Property Name="banda_larga" Type="Boolean" />
+          <Property Name="total_funcionarios" Type="Int32" />
+          <Property Name="alimento_alunos" Type="Boolean" />
+          <Property Name="aee" Type="Boolean" />
+          <Property Name="atividade_complementar" Type="Boolean" />
+          <Property Name="ensino_regular" Type="Boolean" />
+          <Property Name="educacao_especial" Type="Boolean" />
+          <Property Name="eja" Type="Boolean" />
+          <Property Name="educacao_profissional" Type="Boolean" />
+          <Property Name="ciclos" Type="Boolean" />
+          <Property Name="localizacao_diferenciada" Type="Boolean" />
+          <Property Name="material_didatico_nao_utiliza" Type="Boolean" />
+          <Property Name="material_didatico_quilombola" Type="Boolean" />
+          <Property Name="material_didatico_indigena" Type="Boolean" />
+          <Property Name="escola_indigena" Type="Boolean" />
+          <Property Name="lingua_indigena" Type="Boolean" />
+          <Property Name="lingua_portuguesa" Type="Boolean" />
+          <Property Name="cod_lingua_indigena" Type="Int32" />
+          <Property Name="turmas_brasil_alfabetizado" Type="Boolean" />
+          <Property Name="escola_aberta" Type="Boolean" />
+          <Property Name="proposta_pedag_alternancia" Type="Boolean" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_predios_escolas1" FromRole="predios" ToRole="escolas" />
+        </EntityType>
+        <EntityType Name="profissionais_formacao">
+          <Key>
+            <PropertyRef Name="inep_escola" />
+            <PropertyRef Name="inep_profissional" />
+          </Key>
+          <Property Name="inep_escola" Type="Int64" Nullable="false" />
+          <Property Name="inep_profissional" Type="Int64" Nullable="false" />
+          <Property Name="codigo_profissional" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="escolaridade_profissional" Type="Int32" />
+          <Property Name="situacao_superior1_profissional" Type="Boolean" />
+          <Property Name="complet_pedagogica1_profissional" Type="Boolean" />
+          <Property Name="cod_curso_superior1_profissional" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ano_inicio_curso_superior1_profissional" Type="Int32" />
+          <Property Name="ano_conclus_curso_superior1_profissional" Type="Int32" />
+          <Property Name="ies_superior1_profissional" Type="Int32" />
+          <Property Name="especializacao_profissional" Type="Boolean" />
+          <Property Name="mestrado_profissional" Type="Boolean" />
+          <Property Name="doutorado_profissional" Type="Boolean" />
+          <Property Name="pos_graduacao_profissional" Type="Boolean" />
+          <Property Name="outro_curso_creche_profissional" Type="Boolean" />
+          <Property Name="outro_curso_pre_escola_profissional" Type="Boolean" />
+          <Property Name="outro_curso_anos_iniciais_profissional" Type="Boolean" />
+          <Property Name="outro_curso_anos_finais_profissional" Type="Boolean" />
+          <Property Name="outro_curso_medio_profissional" Type="Boolean" />
+          <Property Name="outro_curso_eja_profissional" Type="Boolean" />
+          <Property Name="outro_curso_educ_especial" Type="Boolean" />
+          <Property Name="outro_curso_educ_indigena" Type="Boolean" />
+          <Property Name="outro_curso_educ_campo" Type="Boolean" />
+          <Property Name="outro_curso_educ_ambiental" Type="Boolean" />
+          <Property Name="outro_curso_direitos_humanos" Type="Boolean" />
+          <Property Name="outro_curso_genero_diver_sexual" Type="Boolean" />
+          <Property Name="outro_curso_direitos_cri_adoles" Type="Boolean" />
+          <Property Name="outro_curso_etnico_Afro" Type="Boolean" />
+          <Property Name="outro_curso_outros" Type="Boolean" />
+          <Property Name="outro_curso_nenhum" Type="Boolean" />
+          <NavigationProperty Name="profissionais_pessoais" Relationship="Self.fk_profissionais_formacao_profissionais_pessoais1" FromRole="profissionais_formacao" ToRole="profissionais_pessoais" />
+        </EntityType>
+        <EntityType Name="profissionais_moradia">
+          <Key>
+            <PropertyRef Name="inep_profissional" />
+          </Key>
+          <Property Name="inep_escola" Type="Int32" />
+          <Property Name="inep_profissional" Type="Int64" Nullable="false" />
+          <Property Name="codigo_profissional" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cpf_profissional" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="local_residencia" Type="Boolean" />
+          <Property Name="cep_profissional" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="endereco_profissional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="num_endereco_profissional" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="complemento_profissional" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="bairro_profissional" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="uf_profissional" Type="Int32" />
+          <Property Name="municipio_profissional" Type="Int32" />
+          <NavigationProperty Name="profissionais_pessoais" Relationship="Self.fk_profissionais_moradia_profissionais_pessoais1" FromRole="profissionais_moradia" ToRole="profissionais_pessoais" />
+        </EntityType>
+        <EntityType Name="turmas_pedagogico">
+          <Key>
+            <PropertyRef Name="inep_turam" />
+          </Key>
+          <Property Name="inep_turam" Type="Int64" Nullable="false" />
+          <Property Name="inep_escola" Type="Int64" />
+          <Property Name="codigo_turma" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nome_turma" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="mediacao_didatico_pedagogica" Type="Boolean" />
+          <NavigationProperty Name="escolas" Relationship="Self.fk_turmas_pedagogico_escolas1" FromRole="turmas_pedagogico" ToRole="escolas" />
+          <NavigationProperty Name="turmas" Relationship="Self.fk_turmas_pedagogico_turmas1" FromRole="turmas_pedagogico" ToRole="turmas" />
+          <Property Name="horario_inicial_hora" Type="String" Nullable="false" />
+          <Property Name="horiario_inicial_minuto" Type="String" Nullable="false" />
+          <Property Name="horario_final_hora" Type="String" Nullable="false" />
+          <Property Name="horario_final_minuto" Type="String" Nullable="false" />
+          <Property Name="semana_domingo" Type="Boolean" Nullable="false" />
+          <Property Name="semana_segunda" Type="Boolean" Nullable="false" />
+          <Property Name="semana_terca" Type="Boolean" Nullable="false" />
+          <Property Name="semana_quarta" Type="Boolean" Nullable="false" />
+          <Property Name="semana_quinta" Type="Boolean" Nullable="false" />
+          <Property Name="semana_sexta" Type="Boolean" Nullable="false" />
+          <Property Name="semana_sabado" Type="Boolean" Nullable="false" />
+          <Property Name="tipo_atendimento" Type="Int32" Nullable="false" />
+          <Property Name="turma_mais_educacao" Type="Int32" Nullable="false" />
+          <Property Name="tipo_atividade1" Type="Int32" Nullable="false" />
+          <Property Name="tipo_atividade2" Type="Int32" Nullable="false" />
+          <Property Name="tipo_atividade3" Type="Int32" Nullable="false" />
+          <Property Name="tipo_atividade4" Type="Int32" Nullable="false" />
+          <Property Name="tipo_atividade5" Type="Int32" Nullable="false" />
+          <Property Name="tipo_atividade6" Type="Int32" Nullable="false" />
+          <Property Name="ensino_braile" Type="Boolean" Nullable="false" />
+          <Property Name="ensino_recurso_optico" Type="Boolean" Nullable="false" />
+          <Property Name="ensino_orienta_mobilidade" Type="Boolean" Nullable="false" />
+          <Property Name="ensino_libras" Type="Boolean" Nullable="false" />
+          <Property Name="ensino_caa" Type="Boolean" Nullable="false" />
+          <Property Name="enriquecimento_curricular" Type="Boolean" Nullable="false" />
+          <Property Name="soroban" Type="Boolean" Nullable="false" />
+          <Property Name="informatica_acessivel" Type="Boolean" Nullable="false" />
+          <Property Name="ensino_lingua_portuguesa" Type="Boolean" Nullable="false" />
+          <Property Name="autonomia_ambiente_escolar" Type="Boolean" Nullable="false" />
+          <Property Name="etapa_ensino" Type="Int32" Nullable="false" />
+          <Property Name="codigo_curso_tecnico" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_quimica" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_fisica" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_matematica" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_biologia" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_ciencias" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_lingua_portug" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_lingua_ingles" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_lingua_espanhol" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_lingua_frances" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_lingua_outra" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_artes" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_ed_fisica" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_historia" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_geografia" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_filosofia" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_estudos_sociais" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_sociologia" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_informatica" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_profissionalizante" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_atend_especial" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_diversidade" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_libras" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_pedagogica" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_ensino_religioso" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_lingua_indigena" Type="Int32" Nullable="false" />
+          <Property Name="disciplina_outra" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_alunos_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="alunos" Type="Self.alunos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="alunos">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_pessoais_alunos1">
+          <End Role="alunos" Type="Self.alunos" Multiplicity="1" />
+          <End Role="alunos_pessoais" Type="Self.alunos_pessoais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alunos">
+              <PropertyRef Name="inep_aluno" />
+            </Principal>
+            <Dependent Role="alunos_pessoais">
+              <PropertyRef Name="inep_aluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_turmas_alunos1">
+          <End Role="alunos" Type="Self.alunos" Multiplicity="1" />
+          <End Role="alunos_turmas" Type="Self.alunos_turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alunos">
+              <PropertyRef Name="inep_aluno" />
+            </Principal>
+            <Dependent Role="alunos_turmas">
+              <PropertyRef Name="inep_aluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_turmas_escolas2">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="alunos_turmas" Type="Self.alunos_turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="alunos_turmas">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_turmas_turmas1">
+          <End Role="turmas" Type="Self.turmas" Multiplicity="1" />
+          <End Role="alunos_turmas" Type="Self.alunos_turmas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="turmas">
+              <PropertyRef Name="inep_turma" />
+            </Principal>
+            <Dependent Role="alunos_turmas">
+              <PropertyRef Name="inep_turma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_alunos_pessoais_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="alunos_pessoais" Type="Self.alunos_pessoais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="alunos_pessoais">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_predios_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="predios" Type="Self.predios" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="predios">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_profissionais_pessoais_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="profissionais_pessoais">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="1" />
+          <End Role="turmas" Type="Self.turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="turmas">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_pedagogico_escolas1">
+          <End Role="escolas" Type="Self.escolas" Multiplicity="0..1" />
+          <End Role="turmas_pedagogico" Type="Self.turmas_pedagogico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escolas">
+              <PropertyRef Name="inep_escola" />
+            </Principal>
+            <Dependent Role="turmas_pedagogico">
+              <PropertyRef Name="inep_escola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_profissionais_formacao_profissionais_pessoais1">
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="1" />
+          <End Role="profissionais_formacao" Type="Self.profissionais_formacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profissionais_pessoais">
+              <PropertyRef Name="inep_profissional" />
+            </Principal>
+            <Dependent Role="profissionais_formacao">
+              <PropertyRef Name="inep_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_profissionais_moradia_profissionais_pessoais1">
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="1" />
+          <End Role="profissionais_moradia" Type="Self.profissionais_moradia" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="profissionais_pessoais">
+              <PropertyRef Name="inep_profissional" />
+            </Principal>
+            <Dependent Role="profissionais_moradia">
+              <PropertyRef Name="inep_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_profissionais_pessoais1">
+          <End Role="profissionais_pessoais" Type="Self.profissionais_pessoais" Multiplicity="1" />
+          <End Role="turmas" Type="Self.turmas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profissionais_pessoais">
+              <PropertyRef Name="inep_profissional" />
+            </Principal>
+            <Dependent Role="turmas">
+              <PropertyRef Name="inep_profissional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_turmas_pedagogico_turmas1">
+          <End Role="turmas" Type="Self.turmas" Multiplicity="1" />
+          <End Role="turmas_pedagogico" Type="Self.turmas_pedagogico" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="turmas">
+              <PropertyRef Name="inep_turma" />
+            </Principal>
+            <Dependent Role="turmas_pedagogico">
+              <PropertyRef Name="inep_turam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="censo_escolarEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="alunos" EntityType="Self.alunos" />
+          <EntitySet Name="alunos_turmas" EntityType="Self.alunos_turmas" />
+          <EntitySet Name="area_cursos_superior" EntityType="Self.area_cursos_superior" />
+          <EntitySet Name="cursos_superior" EntityType="Self.cursos_superior" />
+          <EntitySet Name="disciplinas" EntityType="Self.disciplinas" />
+          <EntitySet Name="escolas" EntityType="Self.escolas" />
+          <EntitySet Name="profissionais_pessoais" EntityType="Self.profissionais_pessoais" />
+          <EntitySet Name="turmas" EntityType="Self.turmas" />
+          <EntitySet Name="alunos_pessoais" EntityType="Self.alunos_pessoais" />
+          <EntitySet Name="predios" EntityType="Self.predios" />
+          <EntitySet Name="profissionais_formacao" EntityType="Self.profissionais_formacao" />
+          <EntitySet Name="profissionais_moradia" EntityType="Self.profissionais_moradia" />
+          <EntitySet Name="turmas_pedagogico" EntityType="Self.turmas_pedagogico" />
+          <AssociationSet Name="fk_alunos_escolas1" Association="Self.fk_alunos_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="alunos" EntitySet="alunos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_pessoais_alunos1" Association="Self.fk_alunos_pessoais_alunos1">
+            <End Role="alunos" EntitySet="alunos" />
+            <End Role="alunos_pessoais" EntitySet="alunos_pessoais" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_turmas_alunos1" Association="Self.fk_alunos_turmas_alunos1">
+            <End Role="alunos" EntitySet="alunos" />
+            <End Role="alunos_turmas" EntitySet="alunos_turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_turmas_escolas2" Association="Self.fk_alunos_turmas_escolas2">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="alunos_turmas" EntitySet="alunos_turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_turmas_turmas1" Association="Self.fk_alunos_turmas_turmas1">
+            <End Role="turmas" EntitySet="turmas" />
+            <End Role="alunos_turmas" EntitySet="alunos_turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_alunos_pessoais_escolas1" Association="Self.fk_alunos_pessoais_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="alunos_pessoais" EntitySet="alunos_pessoais" />
+          </AssociationSet>
+          <AssociationSet Name="fk_predios_escolas1" Association="Self.fk_predios_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="predios" EntitySet="predios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_profissionais_pessoais_escolas1" Association="Self.fk_profissionais_pessoais_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_escolas1" Association="Self.fk_turmas_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="turmas" EntitySet="turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_pedagogico_escolas1" Association="Self.fk_turmas_pedagogico_escolas1">
+            <End Role="escolas" EntitySet="escolas" />
+            <End Role="turmas_pedagogico" EntitySet="turmas_pedagogico" />
+          </AssociationSet>
+          <AssociationSet Name="fk_profissionais_formacao_profissionais_pessoais1" Association="Self.fk_profissionais_formacao_profissionais_pessoais1">
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+            <End Role="profissionais_formacao" EntitySet="profissionais_formacao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_profissionais_moradia_profissionais_pessoais1" Association="Self.fk_profissionais_moradia_profissionais_pessoais1">
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+            <End Role="profissionais_moradia" EntitySet="profissionais_moradia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_profissionais_pessoais1" Association="Self.fk_turmas_profissionais_pessoais1">
+            <End Role="profissionais_pessoais" EntitySet="profissionais_pessoais" />
+            <End Role="turmas" EntitySet="turmas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_turmas_pedagogico_turmas1" Association="Self.fk_turmas_pedagogico_turmas1">
+            <End Role="turmas" EntitySet="turmas" />
+            <End Role="turmas_pedagogico" EntitySet="turmas_pedagogico" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="censo_escolarModelStoreContainer" CdmEntityContainer="censo_escolarEntities2">
+          <EntitySetMapping Name="alunos">
+            <EntityTypeMapping TypeName="censo_escolarModel.alunos">
+              <MappingFragment StoreEntitySet="alunos">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_aluno" ColumnName="inep_aluno" />
+                <ScalarProperty Name="codigo_aluno" ColumnName="codigo_aluno" />
+                <ScalarProperty Name="nome_aluno" ColumnName="nome_aluno" />
+                <ScalarProperty Name="data_nasc_aluno" ColumnName="data_nasc_aluno" />
+                <ScalarProperty Name="sexo_aluno" ColumnName="sexo_aluno" />
+                <ScalarProperty Name="cor_raca_aluno" ColumnName="cor_raca_aluno" />
+                <ScalarProperty Name="possui_filiacao_aluno" ColumnName="possui_filiacao_aluno" />
+                <ScalarProperty Name="filiacao1_aluno" ColumnName="filiacao1_aluno" />
+                <ScalarProperty Name="filiacao2_aluno" ColumnName="filiacao2_aluno" />
+                <ScalarProperty Name="nacionalidade_aluno" ColumnName="nacionalidade_aluno" />
+                <ScalarProperty Name="pais_origem_aluno" ColumnName="pais_origem_aluno" />
+                <ScalarProperty Name="uf_nasc_aluno" ColumnName="uf_nasc_aluno" />
+                <ScalarProperty Name="municipio_nasc_aluno" ColumnName="municipio_nasc_aluno" />
+                <ScalarProperty Name="possui_deficiencia_aluno" ColumnName="possui_deficiencia_aluno" />
+                <ScalarProperty Name="defic_cegueira_aluno" ColumnName="defic_cegueira_aluno" />
+                <ScalarProperty Name="defic_baixa_visao_aluno" ColumnName="defic_baixa_visao_aluno" />
+                <ScalarProperty Name="defic_surdez_aluno" ColumnName="defic_surdez_aluno" />
+                <ScalarProperty Name="defic_defic_auditiva_aluno" ColumnName="defic_defic_auditiva_aluno" />
+                <ScalarProperty Name="defic_surdocegueira_aluno" ColumnName="defic_surdocegueira_aluno" />
+                <ScalarProperty Name="defic_defic_fisica_aluno" ColumnName="defic_defic_fisica_aluno" />
+                <ScalarProperty Name="defic_defic_intelectual_aluno" ColumnName="defic_defic_intelectual_aluno" />
+                <ScalarProperty Name="defic_defic_multipla_aluno" ColumnName="defic_defic_multipla_aluno" />
+                <ScalarProperty Name="defic_autismo_aluno" ColumnName="defic_autismo_aluno" />
+                <ScalarProperty Name="defic_asperger_aluno" ColumnName="defic_asperger_aluno" />
+                <ScalarProperty Name="defic_rett_aluno" ColumnName="defic_rett_aluno" />
+                <ScalarProperty Name="defic_superdotacao_aluno" ColumnName="defic_superdotacao_aluno" />
+                <ScalarProperty Name="auxilio_ledor_aluno" ColumnName="auxilio_ledor_aluno" />
+                <ScalarProperty Name="auxilio_transcricao" ColumnName="auxilio_transcricao" />
+                <ScalarProperty Name="guia_interprete" ColumnName="guia_interprete" />
+                <ScalarProperty Name="interprete_libras" ColumnName="interprete_libras" />
+                <ScalarProperty Name="leitura_labial" ColumnName="leitura_labial" />
+                <ScalarProperty Name="prova_ampliada_fonte16" ColumnName="prova_ampliada_fonte16" />
+                <ScalarProperty Name="prova_ampliada_fonte20" ColumnName="prova_ampliada_fonte20" />
+                <ScalarProperty Name="prova_ampliada_fonte24" ColumnName="prova_ampliada_fonte24" />
+                <ScalarProperty Name="prova_braile" ColumnName="prova_braile" />
+                <ScalarProperty Name="prova_especial_nehum" ColumnName="prova_especial_nehum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alunos_turmas">
+            <EntityTypeMapping TypeName="censo_escolarModel.alunos_turmas">
+              <MappingFragment StoreEntitySet="alunos_turmas">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_aluno" ColumnName="inep_aluno" />
+                <ScalarProperty Name="codigo_aluno" ColumnName="codigo_aluno" />
+                <ScalarProperty Name="inep_turma" ColumnName="inep_turma" />
+                <ScalarProperty Name="codigo_turma" ColumnName="codigo_turma" />
+                <ScalarProperty Name="matricula_aluno" ColumnName="matricula_aluno" />
+                <ScalarProperty Name="turma_unificada" ColumnName="turma_unificada" />
+                <ScalarProperty Name="turma_multietapa_eja_misto_tecnico" ColumnName="turma_multietapa_eja_misto_tecnico" />
+                <ScalarProperty Name="escolarizacao_outro_espaco" ColumnName="escolarizacao_outro_espaco" />
+                <ScalarProperty Name="transporte_publico" ColumnName="transporte_publico" />
+                <ScalarProperty Name="responsavel_transporte" ColumnName="responsavel_transporte" />
+                <ScalarProperty Name="transporte_van_kombi" ColumnName="transporte_van_kombi" />
+                <ScalarProperty Name="transporte_microonibus" ColumnName="transporte_microonibus" />
+                <ScalarProperty Name="transporte_onibus" ColumnName="transporte_onibus" />
+                <ScalarProperty Name="transporte_bicicleta" ColumnName="transporte_bicicleta" />
+                <ScalarProperty Name="transporte_tracao_animal" ColumnName="transporte_tracao_animal" />
+                <ScalarProperty Name="transporte_outro" ColumnName="transporte_outro" />
+                <ScalarProperty Name="aquaviario_ate5" ColumnName="aquaviario_ate5" />
+                <ScalarProperty Name="aquaviario_entre5e15" ColumnName="aquaviario_entre5e15" />
+                <ScalarProperty Name="aquaviario_entre15e35" ColumnName="aquaviario_entre15e35" />
+                <ScalarProperty Name="aquaviario_acima30" ColumnName="aquaviario_acima30" />
+                <ScalarProperty Name="ferroviario_metro" ColumnName="ferroviario_metro" />
+                <ScalarProperty Name="forma_ingresso" ColumnName="forma_ingresso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="area_cursos_superior">
+            <EntityTypeMapping TypeName="censo_escolarModel.area_cursos_superior">
+              <MappingFragment StoreEntitySet="area_cursos_superior">
+                <ScalarProperty Name="idarea_cursos_superior" ColumnName="idarea_cursos_superior" />
+                <ScalarProperty Name="nome_area" ColumnName="nome_area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cursos_superior">
+            <EntityTypeMapping TypeName="censo_escolarModel.cursos_superior">
+              <MappingFragment StoreEntitySet="cursos_superior">
+                <ScalarProperty Name="idcursos_superior" ColumnName="idcursos_superior" />
+                <ScalarProperty Name="nome_curso" ColumnName="nome_curso" />
+                <ScalarProperty Name="grau_academico" ColumnName="grau_academico" />
+                <ScalarProperty Name="codigo_area" ColumnName="codigo_area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="disciplinas">
+            <EntityTypeMapping TypeName="censo_escolarModel.disciplinas">
+              <MappingFragment StoreEntitySet="disciplinas">
+                <ScalarProperty Name="iddisciplinas" ColumnName="iddisciplinas" />
+                <ScalarProperty Name="disciplinas1" ColumnName="disciplinas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="escolas">
+            <EntityTypeMapping TypeName="censo_escolarModel.escolas">
+              <MappingFragment StoreEntitySet="escolas">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="cpf_gestor" ColumnName="cpf_gestor" />
+                <ScalarProperty Name="nome_gestor" ColumnName="nome_gestor" />
+                <ScalarProperty Name="cargo_gestor" ColumnName="cargo_gestor" />
+                <ScalarProperty Name="email_gestor" ColumnName="email_gestor" />
+                <ScalarProperty Name="situacao_escola" ColumnName="situacao_escola" />
+                <ScalarProperty Name="inicio_letivo" ColumnName="inicio_letivo" />
+                <ScalarProperty Name="final_letivo" ColumnName="final_letivo" />
+                <ScalarProperty Name="nome_escola" ColumnName="nome_escola" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="endereco_numero" ColumnName="endereco_numero" />
+                <ScalarProperty Name="endereco_complemento" ColumnName="endereco_complemento" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="uf_escola" ColumnName="uf_escola" />
+                <ScalarProperty Name="municipio_escola" ColumnName="municipio_escola" />
+                <ScalarProperty Name="distrito_escola" ColumnName="distrito_escola" />
+                <ScalarProperty Name="DDD_escola" ColumnName="DDD_escola" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="telefone_publico" ColumnName="telefone_publico" />
+                <ScalarProperty Name="telefone_outro" ColumnName="telefone_outro" />
+                <ScalarProperty Name="fax_escola" ColumnName="fax_escola" />
+                <ScalarProperty Name="email_escola" ColumnName="email_escola" />
+                <ScalarProperty Name="cod_regional_ensino" ColumnName="cod_regional_ensino" />
+                <ScalarProperty Name="depend_adm" ColumnName="depend_adm" />
+                <ScalarProperty Name="localizacao_escola" ColumnName="localizacao_escola" />
+                <ScalarProperty Name="escolacol" ColumnName="escolacol" />
+                <ScalarProperty Name="categoria_privada" ColumnName="categoria_privada" />
+                <ScalarProperty Name="coneniada" ColumnName="coneniada" />
+                <ScalarProperty Name="mantenedora_privada1" ColumnName="mantenedora_privada1" />
+                <ScalarProperty Name="mantenedora_privada2" ColumnName="mantenedora_privada2" />
+                <ScalarProperty Name="mantenedora_privada3" ColumnName="mantenedora_privada3" />
+                <ScalarProperty Name="mantenedora_privada4" ColumnName="mantenedora_privada4" />
+                <ScalarProperty Name="mantenedora_privada5" ColumnName="mantenedora_privada5" />
+                <ScalarProperty Name="cnpj_mantenedora" ColumnName="cnpj_mantenedora" />
+                <ScalarProperty Name="cnpj_privada" ColumnName="cnpj_privada" />
+                <ScalarProperty Name="autorizacao_escola" ColumnName="autorizacao_escola" />
+                <ScalarProperty Name="unidade_vinculada" ColumnName="unidade_vinculada" />
+                <ScalarProperty Name="cod_escola_sede" ColumnName="cod_escola_sede" />
+                <ScalarProperty Name="cod_ies" ColumnName="cod_ies" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profissionais_pessoais">
+            <EntityTypeMapping TypeName="censo_escolarModel.profissionais_pessoais">
+              <MappingFragment StoreEntitySet="profissionais_pessoais">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_profissional" ColumnName="inep_profissional" />
+                <ScalarProperty Name="codigo_profissional" ColumnName="codigo_profissional" />
+                <ScalarProperty Name="nome_profissional" ColumnName="nome_profissional" />
+                <ScalarProperty Name="email_profissional" ColumnName="email_profissional" />
+                <ScalarProperty Name="nis_profissional" ColumnName="nis_profissional" />
+                <ScalarProperty Name="data_nasc_profissional" ColumnName="data_nasc_profissional" />
+                <ScalarProperty Name="sexo_profissional" ColumnName="sexo_profissional" />
+                <ScalarProperty Name="cor_raca_profissional" ColumnName="cor_raca_profissional" />
+                <ScalarProperty Name="filiacao_profissional" ColumnName="filiacao_profissional" />
+                <ScalarProperty Name="filiacao1_profissional" ColumnName="filiacao1_profissional" />
+                <ScalarProperty Name="filiacao2_profissional" ColumnName="filiacao2_profissional" />
+                <ScalarProperty Name="nacionalidade_profissional" ColumnName="nacionalidade_profissional" />
+                <ScalarProperty Name="pais_origem_profissional" ColumnName="pais_origem_profissional" />
+                <ScalarProperty Name="uf_nasci__profissional" ColumnName="uf_nasci__profissional" />
+                <ScalarProperty Name="municipio_nasci_profissional" ColumnName="municipio_nasci_profissional" />
+                <ScalarProperty Name="deficiencia_profissional" ColumnName="deficiencia_profissional" />
+                <ScalarProperty Name="cegueira_profissional" ColumnName="cegueira_profissional" />
+                <ScalarProperty Name="baixa_visao_profissional" ColumnName="baixa_visao_profissional" />
+                <ScalarProperty Name="surdez_profissional" ColumnName="surdez_profissional" />
+                <ScalarProperty Name="defic_auditiva_profissional" ColumnName="defic_auditiva_profissional" />
+                <ScalarProperty Name="surdocegueira_profissional" ColumnName="surdocegueira_profissional" />
+                <ScalarProperty Name="defic_fisica_profissional" ColumnName="defic_fisica_profissional" />
+                <ScalarProperty Name="defic_intelec_profissional" ColumnName="defic_intelec_profissional" />
+                <ScalarProperty Name="defic_multipla_profissional" ColumnName="defic_multipla_profissional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="turmas">
+            <EntityTypeMapping TypeName="censo_escolarModel.turmas">
+              <MappingFragment StoreEntitySet="turmas">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_profissional" ColumnName="inep_profissional" />
+                <ScalarProperty Name="codigo_profissional" ColumnName="codigo_profissional" />
+                <ScalarProperty Name="inep_turma" ColumnName="inep_turma" />
+                <ScalarProperty Name="codigo_turma" ColumnName="codigo_turma" />
+                <ScalarProperty Name="funcao_turma" ColumnName="funcao_turma" />
+                <ScalarProperty Name="situacao_funcional_turma" ColumnName="situacao_funcional_turma" />
+                <ScalarProperty Name="disciplina_turma" ColumnName="disciplina_turma" />
+                <ScalarProperty Name="disciplina_turma2" ColumnName="disciplina_turma2" />
+                <ScalarProperty Name="disciplina_turma3" ColumnName="disciplina_turma3" />
+                <ScalarProperty Name="disciplina_turma4" ColumnName="disciplina_turma4" />
+                <ScalarProperty Name="disciplina_turma5" ColumnName="disciplina_turma5" />
+                <ScalarProperty Name="disciplina_turma6" ColumnName="disciplina_turma6" />
+                <ScalarProperty Name="disciplina_turma7" ColumnName="disciplina_turma7" />
+                <ScalarProperty Name="disciplina_turma8" ColumnName="disciplina_turma8" />
+                <ScalarProperty Name="disciplina_turma9" ColumnName="disciplina_turma9" />
+                <ScalarProperty Name="disciplina_turma10" ColumnName="disciplina_turma10" />
+                <ScalarProperty Name="disciplina_turma11" ColumnName="disciplina_turma11" />
+                <ScalarProperty Name="disciplina_turma12" ColumnName="disciplina_turma12" />
+                <ScalarProperty Name="disciplina_turma13" ColumnName="disciplina_turma13" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alunos_pessoais">
+            <EntityTypeMapping TypeName="censo_escolarModel.alunos_pessoais">
+              <MappingFragment StoreEntitySet="alunos_pessoais">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_aluno" ColumnName="inep_aluno" />
+                <ScalarProperty Name="codigo_aluno" ColumnName="codigo_aluno" />
+                <ScalarProperty Name="identidade_aluno" ColumnName="identidade_aluno" />
+                <ScalarProperty Name="orgao_emissor_aluno" ColumnName="orgao_emissor_aluno" />
+                <ScalarProperty Name="uf_identidade_aluno" ColumnName="uf_identidade_aluno" />
+                <ScalarProperty Name="dataexped_identidade_aluno" ColumnName="dataexped_identidade_aluno" />
+                <ScalarProperty Name="certidao_civil_aluno" ColumnName="certidao_civil_aluno" />
+                <ScalarProperty Name="tipo_certidao_civil_aluno" ColumnName="tipo_certidao_civil_aluno" />
+                <ScalarProperty Name="num_termo_aluno" ColumnName="número_termo_aluno" />
+                <ScalarProperty Name="folha_aluno" ColumnName="folha_aluno" />
+                <ScalarProperty Name="livro_aluno" ColumnName="livro_aluno" />
+                <ScalarProperty Name="data_emissao_certidao_aluno" ColumnName="data_emissao_certidao_aluno" />
+                <ScalarProperty Name="uf_cartorio_aluno" ColumnName="uf_cartorio_aluno" />
+                <ScalarProperty Name="municipio_cartorio_aluno" ColumnName="municipio_cartorio_aluno" />
+                <ScalarProperty Name="codigo_cartorio_aluno" ColumnName="codigo_cartorio_aluno" />
+                <ScalarProperty Name="num_matricula_aluno" ColumnName="num_matricula_aluno" />
+                <ScalarProperty Name="cpf_aluno" ColumnName="cpf_aluno" />
+                <ScalarProperty Name="passaporte_aluno" ColumnName="passaporte_aluno" />
+                <ScalarProperty Name="nis_aluno" ColumnName="nis_aluno" />
+                <ScalarProperty Name="local_residencia_aluno" ColumnName="local_residencia_aluno" />
+                <ScalarProperty Name="cep_aluno" ColumnName="cep_aluno" />
+                <ScalarProperty Name="endereco_aluno" ColumnName="endereco_aluno" />
+                <ScalarProperty Name="num_residencia_aluno" ColumnName="num_residencia_aluno" />
+                <ScalarProperty Name="complemento_aluno" ColumnName="complemento_aluno" />
+                <ScalarProperty Name="bairro_aluno" ColumnName="bairro_aluno" />
+                <ScalarProperty Name="uf_aluno" ColumnName="uf_aluno" />
+                <ScalarProperty Name="municipio_aluno" ColumnName="municipio_aluno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="predios">
+            <EntityTypeMapping TypeName="censo_escolarModel.predios">
+              <MappingFragment StoreEntitySet="predios">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="predio_escola" ColumnName="predio_escola" />
+                <ScalarProperty Name="tempo_igreja" ColumnName="tempo_igreja" />
+                <ScalarProperty Name="sala_empresa" ColumnName="sala_empresa" />
+                <ScalarProperty Name="casa_professor" ColumnName="casa_professor" />
+                <ScalarProperty Name="sala_outra_escola" ColumnName="sala_outra_escola" />
+                <ScalarProperty Name="unid_socioeduc" ColumnName="unid_socioeduc" />
+                <ScalarProperty Name="unid_prisional" ColumnName="unid_prisional" />
+                <ScalarProperty Name="local_outros" ColumnName="local_outros" />
+                <ScalarProperty Name="ocupacao_predio" ColumnName="ocupacao_predio" />
+                <ScalarProperty Name="compartilhado" ColumnName="compartilhado" />
+                <ScalarProperty Name="escola_compartilha1" ColumnName="escola_compartilha1" />
+                <ScalarProperty Name="escola_compartilha2" ColumnName="escola_compartilha2" />
+                <ScalarProperty Name="escola_compartilha3" ColumnName="escola_compartilha3" />
+                <ScalarProperty Name="escola_compartilha4" ColumnName="escola_compartilha4" />
+                <ScalarProperty Name="escola_compartilha5" ColumnName="escola_compartilha5" />
+                <ScalarProperty Name="escola_compartilha6" ColumnName="escola_compartilha6" />
+                <ScalarProperty Name="agua_consumida" ColumnName="agua_consumida" />
+                <ScalarProperty Name="agua_public" ColumnName="agua_public" />
+                <ScalarProperty Name="poco_artes" ColumnName="poco_artes" />
+                <ScalarProperty Name="cisterna" ColumnName="cisterna" />
+                <ScalarProperty Name="fonte_rio" ColumnName="fonte_rio" />
+                <ScalarProperty Name="sem_agua" ColumnName="sem_agua" />
+                <ScalarProperty Name="energia_publica" ColumnName="energia_publica" />
+                <ScalarProperty Name="energia_gerador" ColumnName="energia_gerador" />
+                <ScalarProperty Name="energia_outros" ColumnName="energia_outros" />
+                <ScalarProperty Name="sem_energia" ColumnName="sem_energia" />
+                <ScalarProperty Name="esgoto_publico" ColumnName="esgoto_publico" />
+                <ScalarProperty Name="esgoto_fossa" ColumnName="esgoto_fossa" />
+                <ScalarProperty Name="sem_esgoto" ColumnName="sem_esgoto" />
+                <ScalarProperty Name="lixo_coleta" ColumnName="lixo_coleta" />
+                <ScalarProperty Name="lixo_queima" ColumnName="lixo_queima" />
+                <ScalarProperty Name="lixo_outra_area" ColumnName="lixo_outra_area" />
+                <ScalarProperty Name="lixo_recicla" ColumnName="lixo_recicla" />
+                <ScalarProperty Name="lixo_enterra" ColumnName="lixo_enterra" />
+                <ScalarProperty Name="lixo_outro" ColumnName="lixo_outro" />
+                <ScalarProperty Name="sala_diretoria" ColumnName="sala_diretoria" />
+                <ScalarProperty Name="sala_professores" ColumnName="sala_professores" />
+                <ScalarProperty Name="sala_secretaria" ColumnName="sala_secretaria" />
+                <ScalarProperty Name="labo_iformatica" ColumnName="labo_iformatica" />
+                <ScalarProperty Name="labo_ciencias" ColumnName="labo_ciencias" />
+                <ScalarProperty Name="sala_recursos" ColumnName="sala_recursos" />
+                <ScalarProperty Name="quadra_esportes_coberta" ColumnName="quadra_esportes_coberta" />
+                <ScalarProperty Name="quadra_esportes_aberta" ColumnName="quadra_esportes_aberta" />
+                <ScalarProperty Name="cozinha" ColumnName="cozinha" />
+                <ScalarProperty Name="biblioteca" ColumnName="biblioteca" />
+                <ScalarProperty Name="sala_leitura" ColumnName="sala_leitura" />
+                <ScalarProperty Name="parque_infantil" ColumnName="parque_infantil" />
+                <ScalarProperty Name="bercario" ColumnName="bercario" />
+                <ScalarProperty Name="banheiro_fora" ColumnName="banheiro_fora" />
+                <ScalarProperty Name="banheiro_dentro" ColumnName="banheiro_dentro" />
+                <ScalarProperty Name="banheiro_inantil" ColumnName="banheiro_inantil" />
+                <ScalarProperty Name="banheiro_deficiente" ColumnName="banheiro_deficiente" />
+                <ScalarProperty Name="dependecia_via_deficiente" ColumnName="dependecia_via_deficiente" />
+                <ScalarProperty Name="banheiro_com_chuveiro" ColumnName="banheiro_com_chuveiro" />
+                <ScalarProperty Name="refeitorio" ColumnName="refeitorio" />
+                <ScalarProperty Name="despensa" ColumnName="despensa" />
+                <ScalarProperty Name="almoxarifado" ColumnName="almoxarifado" />
+                <ScalarProperty Name="auditorio" ColumnName="auditorio" />
+                <ScalarProperty Name="patio_coberto" ColumnName="patio_coberto" />
+                <ScalarProperty Name="patio_descoberto" ColumnName="patio_descoberto" />
+                <ScalarProperty Name="alojamento_aluno" ColumnName="alojamento_aluno" />
+                <ScalarProperty Name="alojamento_professor" ColumnName="alojamento_professor" />
+                <ScalarProperty Name="area_verde" ColumnName="area_verde" />
+                <ScalarProperty Name="lavanderia" ColumnName="lavanderia" />
+                <ScalarProperty Name="nenhuma_relaciona" ColumnName="nenhuma_relaciona" />
+                <ScalarProperty Name="num_salas_aula" ColumnName="num_salas_aula" />
+                <ScalarProperty Name="num_salas_aula_dentro_fora" ColumnName="num_salas_aula_dentro_fora" />
+                <ScalarProperty Name="qtde_tvs" ColumnName="qtde_tvs" />
+                <ScalarProperty Name="qtde_videocassete" ColumnName="qtde_videocassete" />
+                <ScalarProperty Name="qtde_dvd" ColumnName="qtde_dvd" />
+                <ScalarProperty Name="qtde_parabolica" ColumnName="qtde_parabolica" />
+                <ScalarProperty Name="qtde_copiador" ColumnName="qtde_copiador" />
+                <ScalarProperty Name="qtde_retroprojetor" ColumnName="qtde_retroprojetor" />
+                <ScalarProperty Name="qtde_impressora" ColumnName="qtde_impressora" />
+                <ScalarProperty Name="qtde_som" ColumnName="qtde_som" />
+                <ScalarProperty Name="qtde_projetor" ColumnName="qtde_projetor" />
+                <ScalarProperty Name="qtde_fax" ColumnName="qtde_fax" />
+                <ScalarProperty Name="qtde_maq_foto" ColumnName="qtde_maq_foto" />
+                <ScalarProperty Name="qtde_computadores_total" ColumnName="qtde_computadores_total" />
+                <ScalarProperty Name="qtde_computoadores_administ" ColumnName="qtde_computoadores_administ" />
+                <ScalarProperty Name="qtde_computadores_alunos" ColumnName="qtde_computadores_alunos" />
+                <ScalarProperty Name="acesso_internet" ColumnName="acesso_internet" />
+                <ScalarProperty Name="banda_larga" ColumnName="banda_larga" />
+                <ScalarProperty Name="total_funcionarios" ColumnName="total_funcionarios" />
+                <ScalarProperty Name="alimento_alunos" ColumnName="alimento_alunos" />
+                <ScalarProperty Name="aee" ColumnName="aee" />
+                <ScalarProperty Name="atividade_complementar" ColumnName="atividade_complementar" />
+                <ScalarProperty Name="ensino_regular" ColumnName="ensino_regular" />
+                <ScalarProperty Name="educacao_especial" ColumnName="educacao_especial" />
+                <ScalarProperty Name="eja" ColumnName="eja" />
+                <ScalarProperty Name="educacao_profissional" ColumnName="educacao_profissional" />
+                <ScalarProperty Name="ciclos" ColumnName="ciclos" />
+                <ScalarProperty Name="localizacao_diferenciada" ColumnName="localizacao_diferenciada" />
+                <ScalarProperty Name="material_didatico_nao_utiliza" ColumnName="material_didatico_nao_utiliza" />
+                <ScalarProperty Name="material_didatico_quilombola" ColumnName="material_didatico_quilombola" />
+                <ScalarProperty Name="material_didatico_indigena" ColumnName="material_didatico_indigena" />
+                <ScalarProperty Name="escola_indigena" ColumnName="escola_indigena" />
+                <ScalarProperty Name="lingua_indigena" ColumnName="lingua_indigena" />
+                <ScalarProperty Name="lingua_portuguesa" ColumnName="lingua_portuguesa" />
+                <ScalarProperty Name="cod_lingua_indigena" ColumnName="cod_lingua_indigena" />
+                <ScalarProperty Name="turmas_brasil_alfabetizado" ColumnName="turmas_brasil_alfabetizado" />
+                <ScalarProperty Name="escola_aberta" ColumnName="escola_aberta" />
+                <ScalarProperty Name="proposta_pedag_alternancia" ColumnName="proposta_pedag_alternancia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profissionais_formacao">
+            <EntityTypeMapping TypeName="censo_escolarModel.profissionais_formacao">
+              <MappingFragment StoreEntitySet="profissionais_formacao">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_profissional" ColumnName="inep_profissional" />
+                <ScalarProperty Name="codigo_profissional" ColumnName="codigo_profissional" />
+                <ScalarProperty Name="escolaridade_profissional" ColumnName="escolaridade_profissional" />
+                <ScalarProperty Name="situacao_superior1_profissional" ColumnName="situacao_superior1_profissional" />
+                <ScalarProperty Name="complet_pedagogica1_profissional" ColumnName="complet_pedagogica1_profissional" />
+                <ScalarProperty Name="cod_curso_superior1_profissional" ColumnName="cod_curso_superior1_profissional" />
+                <ScalarProperty Name="ano_inicio_curso_superior1_profissional" ColumnName="ano_inicio_curso_superior1_profissional" />
+                <ScalarProperty Name="ano_conclus_curso_superior1_profissional" ColumnName="ano_conclus_curso_superior1_profissional" />
+                <ScalarProperty Name="ies_superior1_profissional" ColumnName="ies_superior1_profissional" />
+                <ScalarProperty Name="especializacao_profissional" ColumnName="especializacao_profissional" />
+                <ScalarProperty Name="mestrado_profissional" ColumnName="mestrado_profissional" />
+                <ScalarProperty Name="doutorado_profissional" ColumnName="doutorado_profissional" />
+                <ScalarProperty Name="pos_graduacao_profissional" ColumnName="pos_graduacao_profissional" />
+                <ScalarProperty Name="outro_curso_creche_profissional" ColumnName="outro_curso_creche_profissional" />
+                <ScalarProperty Name="outro_curso_pre_escola_profissional" ColumnName="outro_curso_pre_escola_profissional" />
+                <ScalarProperty Name="outro_curso_anos_iniciais_profissional" ColumnName="outro_curso_anos_iniciais_profissional" />
+                <ScalarProperty Name="outro_curso_anos_finais_profissional" ColumnName="outro_curso_anos_finais_profissional" />
+                <ScalarProperty Name="outro_curso_medio_profissional" ColumnName="outro_curso_medio_profissional" />
+                <ScalarProperty Name="outro_curso_eja_profissional" ColumnName="outro_curso_eja_profissional" />
+                <ScalarProperty Name="outro_curso_educ_especial" ColumnName="outro_curso_educ_especial" />
+                <ScalarProperty Name="outro_curso_educ_indigena" ColumnName="outro_curso_educ_indigena" />
+                <ScalarProperty Name="outro_curso_educ_campo" ColumnName="outro_curso_educ_campo" />
+                <ScalarProperty Name="outro_curso_educ_ambiental" ColumnName="outro_curso_educ_ambiental" />
+                <ScalarProperty Name="outro_curso_direitos_humanos" ColumnName="outro_curso_direitos_humanos" />
+                <ScalarProperty Name="outro_curso_genero_diver_sexual" ColumnName="outro_curso_genero_diver_sexual" />
+                <ScalarProperty Name="outro_curso_direitos_cri_adoles" ColumnName="outro_curso_direitos_cri_adoles" />
+                <ScalarProperty Name="outro_curso_etnico_Afro" ColumnName="outro_curso_etnico_Afro" />
+                <ScalarProperty Name="outro_curso_outros" ColumnName="outro_curso_outros" />
+                <ScalarProperty Name="outro_curso_nenhum" ColumnName="outro_curso_nenhum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profissionais_moradia">
+            <EntityTypeMapping TypeName="censo_escolarModel.profissionais_moradia">
+              <MappingFragment StoreEntitySet="profissionais_moradia">
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="inep_profissional" ColumnName="inep_profissional" />
+                <ScalarProperty Name="codigo_profissional" ColumnName="codigo_profissional" />
+                <ScalarProperty Name="cpf_profissional" ColumnName="cpf_profissional" />
+                <ScalarProperty Name="local_residencia" ColumnName="local_residencia" />
+                <ScalarProperty Name="cep_profissional" ColumnName="cep_profissional" />
+                <ScalarProperty Name="endereco_profissional" ColumnName="endereco_profissional" />
+                <ScalarProperty Name="num_endereco_profissional" ColumnName="num_endereco_profissional" />
+                <ScalarProperty Name="complemento_profissional" ColumnName="complemento_profissional" />
+                <ScalarProperty Name="bairro_profissional" ColumnName="bairro_profissional" />
+                <ScalarProperty Name="uf_profissional" ColumnName="uf_profissional" />
+                <ScalarProperty Name="municipio_profissional" ColumnName="municipio_profissional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="turmas_pedagogico">
+            <EntityTypeMapping TypeName="censo_escolarModel.turmas_pedagogico">
+              <MappingFragment StoreEntitySet="turmas_pedagogico">
+                <ScalarProperty Name="inep_turam" ColumnName="inep_turam" />
+                <ScalarProperty Name="inep_escola" ColumnName="inep_escola" />
+                <ScalarProperty Name="codigo_turma" ColumnName="codigo_turma" />
+                <ScalarProperty Name="nome_turma" ColumnName="nome_turma" />
+                <ScalarProperty Name="mediacao_didatico_pedagogica" ColumnName="mediacao_didatico_pedagogica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

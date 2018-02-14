@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f3d29c27df24a27ba7cb353df3c5979" Name="Diagram1" ShowGrid="true" ZoomLevel="73">
+        <EntityTypeShape EntityType="censo_escolarModel.alunos" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.alunos_turmas" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.area_cursos_superior" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.cursos_superior" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.disciplinas" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.escolas" Width="1.5" PointX="0.75" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.profissionais_pessoais" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.turmas" Width="1.5" PointX="8.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.alunos_pessoais" Width="3.25" PointX="11.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.predios" Width="1.5" PointX="3" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.profissionais_formacao" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.profissionais_moradia" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="censo_escolarModel.turmas_pedagogico" Width="3" PointX="10.5" PointY="29.25" IsExpanded="true" />
+        <AssociationConnector Association="censo_escolarModel.fk_alunos_escolas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_alunos_pessoais_alunos1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_alunos_turmas_alunos1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_alunos_turmas_escolas2" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_alunos_turmas_turmas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_alunos_pessoais_escolas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_predios_escolas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_profissionais_pessoais_escolas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_turmas_escolas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_turmas_pedagogico_escolas1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_profissionais_formacao_profissionais_pessoais1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_profissionais_moradia_profissionais_pessoais1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_turmas_profissionais_pessoais1" ManuallyRouted="false" />
+        <AssociationConnector Association="censo_escolarModel.fk_turmas_pedagogico_turmas1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
